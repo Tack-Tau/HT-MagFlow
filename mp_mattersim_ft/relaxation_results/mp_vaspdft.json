@@ -1,0 +1,3042 @@
+[
+  {
+    "chemsys": "Co-V",
+    "composition": {
+      "VCo": 2
+    },
+    "energy": -16.36449008,
+    "energy_per_atom": -8.18224504,
+    "entry_id": "mp-1002109-GGA",
+    "mp_id": "mp-1002109"
+  },
+  {
+    "chemsys": "Co-Cr",
+    "composition": {
+      "CrCo3": 4
+    },
+    "energy": -30.72623114,
+    "energy_per_atom": -7.681557785,
+    "entry_id": "mp-1008280-GGA",
+    "mp_id": "mp-1008280"
+  },
+  {
+    "chemsys": "Cr-Fe",
+    "composition": {
+      "Cr3Fe": 4
+    },
+    "energy": -36.92199637,
+    "energy_per_atom": -9.2304990925,
+    "entry_id": "mp-1008282-GGA",
+    "mp_id": "mp-1008282"
+  },
+  {
+    "chemsys": "Cr-Fe",
+    "composition": {
+      "Cr3Fe": 4
+    },
+    "energy": -36.39152106,
+    "energy_per_atom": -9.097880265,
+    "entry_id": "mp-1008285-GGA",
+    "mp_id": "mp-1008285"
+  },
+  {
+    "chemsys": "Ni",
+    "composition": {
+      "Ni": 1
+    },
+    "energy": -5.6845769,
+    "energy_per_atom": -5.6845769,
+    "entry_id": "mp-1008728-GGA",
+    "mp_id": "mp-1008728"
+  },
+  {
+    "chemsys": "Co-Mn",
+    "composition": {
+      "MnCo": 2
+    },
+    "energy": -16.32204805,
+    "energy_per_atom": -8.161024025,
+    "entry_id": "mp-1009133-GGA",
+    "mp_id": "mp-1009133"
+  },
+  {
+    "chemsys": "Fe-Mn",
+    "composition": {
+      "MnFe": 2
+    },
+    "energy": -17.446918750000002,
+    "energy_per_atom": -8.723459375000001,
+    "entry_id": "mp-1009134-GGA",
+    "mp_id": "mp-1009134"
+  },
+  {
+    "chemsys": "Co-Cr",
+    "composition": {
+      "CrCo": 2
+    },
+    "energy": -16.45424306,
+    "energy_per_atom": -8.22712153,
+    "entry_id": "mp-1010071-GGA",
+    "mp_id": "mp-1010071"
+  },
+  {
+    "chemsys": "Cu",
+    "composition": {
+      "Cu": 1
+    },
+    "energy": -4.06349831,
+    "energy_per_atom": -4.06349831,
+    "entry_id": "mp-1010136-GGA",
+    "mp_id": "mp-1010136"
+  },
+  {
+    "chemsys": "Ni",
+    "composition": {
+      "Ni": 2
+    },
+    "energy": -10.3197951,
+    "energy_per_atom": -5.15989755,
+    "entry_id": "mp-1014111-GGA",
+    "mp_id": "mp-1014111"
+  },
+  {
+    "chemsys": "Cr-Fe",
+    "composition": {
+      "Cr3Fe": 4
+    },
+    "energy": -36.34826247,
+    "energy_per_atom": -9.0870656175,
+    "entry_id": "mp-1017511-GGA",
+    "mp_id": "mp-1017511"
+  },
+  {
+    "chemsys": "Co-V",
+    "composition": {
+      "VCo3": 4
+    },
+    "energy": -31.08546761,
+    "energy_per_atom": -7.7713669025,
+    "entry_id": "mp-1017529-GGA",
+    "mp_id": "mp-1017529"
+  },
+  {
+    "chemsys": "Cr-Fe",
+    "composition": {
+      "CrFe3": 4
+    },
+    "energy": -34.8084146,
+    "energy_per_atom": -8.70210365,
+    "entry_id": "mp-1018067-GGA",
+    "mp_id": "mp-1018067"
+  },
+  {
+    "chemsys": "Cr-Fe",
+    "composition": {
+      "CrFe3": 4
+    },
+    "energy": -34.86309944,
+    "energy_per_atom": -8.71577486,
+    "entry_id": "mp-1018081-GGA",
+    "mp_id": "mp-1018081"
+  },
+  {
+    "chemsys": "Ni-Y",
+    "composition": {
+      "YNi2": 6
+    },
+    "energy": -38.55768325,
+    "energy_per_atom": -6.426280541666666,
+    "entry_id": "mp-1019-GGA",
+    "mp_id": "mp-1019"
+  },
+  {
+    "chemsys": "Co",
+    "composition": {
+      "Co": 1
+    },
+    "energy": -7.0922038,
+    "energy_per_atom": -7.0922038,
+    "entry_id": "mp-102-GGA",
+    "mp_id": "mp-102"
+  },
+  {
+    "chemsys": "Co-Cr",
+    "composition": {
+      "Cr3Co": 8
+    },
+    "energy": -70.11792917,
+    "energy_per_atom": -8.76474114625,
+    "entry_id": "mp-1025503-GGA",
+    "mp_id": "mp-1025503"
+  },
+  {
+    "chemsys": "Ni",
+    "composition": {
+      "Ni": 2
+    },
+    "energy": -11.50798865,
+    "energy_per_atom": -5.753994325,
+    "entry_id": "mp-10257-GGA",
+    "mp_id": "mp-10257"
+  },
+  {
+    "chemsys": "Ni-Ti",
+    "composition": {
+      "TiNi": 4
+    },
+    "energy": -28.9346775,
+    "energy_per_atom": -7.233669375,
+    "entry_id": "mp-1048-GGA",
+    "mp_id": "mp-1048"
+  },
+  {
+    "chemsys": "Mn",
+    "composition": {
+      "Mn": 1
+    },
+    "energy": -9.01657057,
+    "energy_per_atom": -9.01657057,
+    "entry_id": "mp-1055908-GGA",
+    "mp_id": "mp-1055908"
+  },
+  {
+    "chemsys": "Cu",
+    "composition": {
+      "Cu": 1
+    },
+    "energy": -2.11627218,
+    "energy_per_atom": -2.11627218,
+    "entry_id": "mp-1056079-GGA",
+    "mp_id": "mp-1056079"
+  },
+  {
+    "chemsys": "Mn",
+    "composition": {
+      "Mn": 2
+    },
+    "energy": -17.00899084,
+    "energy_per_atom": -8.50449542,
+    "entry_id": "mp-1057139-GGA",
+    "mp_id": "mp-1057139"
+  },
+  {
+    "chemsys": "Cu",
+    "composition": {
+      "Cu": 2
+    },
+    "energy": -7.91260189,
+    "energy_per_atom": -3.956300945,
+    "entry_id": "mp-1059259-GGA",
+    "mp_id": "mp-1059259"
+  },
+  {
+    "chemsys": "Cr",
+    "composition": {
+      "Cr": 2
+    },
+    "energy": -18.63427818,
+    "energy_per_atom": -9.31713909,
+    "entry_id": "mp-1059289-GGA",
+    "mp_id": "mp-1059289"
+  },
+  {
+    "chemsys": "Mn-Y",
+    "composition": {
+      "YMn2": 3
+    },
+    "energy": -22.53575206,
+    "energy_per_atom": -7.511917353333334,
+    "entry_id": "mp-1062072-GGA",
+    "mp_id": "mp-1062072"
+  },
+  {
+    "chemsys": "Ni-Ti",
+    "composition": {
+      "TiNi": 4
+    },
+    "energy": -28.92665037,
+    "energy_per_atom": -7.2316625925,
+    "entry_id": "mp-1067248-GGA",
+    "mp_id": "mp-1067248"
+  },
+  {
+    "chemsys": "Ni-Ti",
+    "composition": {
+      "TiNi": 4
+    },
+    "energy": -28.64769256,
+    "energy_per_atom": -7.16192314,
+    "entry_id": "mp-1067475-GGA",
+    "mp_id": "mp-1067475"
+  },
+  {
+    "chemsys": "Co",
+    "composition": {
+      "Co": 6
+    },
+    "energy": -41.45394912,
+    "energy_per_atom": -6.90899152,
+    "entry_id": "mp-1072089-GGA",
+    "mp_id": "mp-1072089"
+  },
+  {
+    "chemsys": "Y-Zn",
+    "composition": {
+      "YZn2": 6
+    },
+    "energy": -20.07806554,
+    "energy_per_atom": -3.346344256666667,
+    "entry_id": "mp-1072382-GGA",
+    "mp_id": "mp-1072382"
+  },
+  {
+    "chemsys": "Gd-Mn",
+    "composition": {
+      "GdMn2": 6
+    },
+    "energy": -63.49042362,
+    "energy_per_atom": -10.58173727,
+    "entry_id": "mp-1076939-GGA",
+    "mp_id": "mp-1076939"
+  },
+  {
+    "chemsys": "Gd-Zn",
+    "composition": {
+      "GdZn2": 6
+    },
+    "energy": -35.53680914,
+    "energy_per_atom": -5.922801523333334,
+    "entry_id": "mp-1076988-GGA",
+    "mp_id": "mp-1076988"
+  },
+  {
+    "chemsys": "Co-Gd",
+    "composition": {
+      "GdCo5": 6
+    },
+    "energy": -50.0548349,
+    "energy_per_atom": -8.342472483333333,
+    "entry_id": "mp-1077071-GGA",
+    "mp_id": "mp-1077071"
+  },
+  {
+    "chemsys": "Cu-Y",
+    "composition": {
+      "YCu2": 6
+    },
+    "energy": -30.25949578,
+    "energy_per_atom": -5.043249296666667,
+    "entry_id": "mp-1077241-GGA",
+    "mp_id": "mp-1077241"
+  },
+  {
+    "chemsys": "Co-Cr",
+    "composition": {
+      "Cr2Co": 6
+    },
+    "energy": -51.1011668,
+    "energy_per_atom": -8.516861133333334,
+    "entry_id": "mp-1077706-GGA",
+    "mp_id": "mp-1077706"
+  },
+  {
+    "chemsys": "Cr-Fe",
+    "composition": {
+      "Cr2Fe": 6
+    },
+    "energy": -53.81677166,
+    "energy_per_atom": -8.969461943333334,
+    "entry_id": "mp-1077708-GGA",
+    "mp_id": "mp-1077708"
+  },
+  {
+    "chemsys": "Cu-Gd",
+    "composition": {
+      "GdCu2": 6
+    },
+    "energy": -46.03584356,
+    "energy_per_atom": -7.672640593333334,
+    "entry_id": "mp-1077933-GGA",
+    "mp_id": "mp-1077933"
+  },
+  {
+    "chemsys": "Fe-V",
+    "composition": {
+      "V3Fe": 8
+    },
+    "energy": -72.81257393,
+    "energy_per_atom": -9.10157174125,
+    "entry_id": "mp-1079399-GGA",
+    "mp_id": "mp-1079399"
+  },
+  {
+    "chemsys": "Co-Ti",
+    "composition": {
+      "TiCo3": 8
+    },
+    "energy": -60.24122588,
+    "energy_per_atom": -7.530153235,
+    "entry_id": "mp-1079863-GGA",
+    "mp_id": "mp-1079863"
+  },
+  {
+    "chemsys": "Cu-Y",
+    "composition": {
+      "YCu": 8
+    },
+    "energy": -44.33120864,
+    "energy_per_atom": -5.54140108,
+    "entry_id": "mp-1080443-GGA",
+    "mp_id": "mp-1080443"
+  },
+  {
+    "chemsys": "Co-Cr",
+    "composition": {
+      "CrCo3": 8
+    },
+    "energy": -61.76216682,
+    "energy_per_atom": -7.7202708525,
+    "entry_id": "mp-1087479-GGA",
+    "mp_id": "mp-1087479"
+  },
+  {
+    "chemsys": "Co-Cu-Y",
+    "composition": {
+      "Y2CoCu": 4
+    },
+    "energy": -15.12406158,
+    "energy_per_atom": -3.781015395,
+    "entry_id": "mp-1093698-GGA",
+    "mp_id": "mp-1093698"
+  },
+  {
+    "chemsys": "Ni",
+    "composition": {
+      "Ni": 4
+    },
+    "energy": -20.16114056,
+    "energy_per_atom": -5.04028514,
+    "entry_id": "mp-1094136-GGA",
+    "mp_id": "mp-1094136"
+  },
+  {
+    "chemsys": "Co-V",
+    "composition": {
+      "VCo3": 8
+    },
+    "energy": -62.14309198,
+    "energy_per_atom": -7.7678864975,
+    "entry_id": "mp-1095057-GGA",
+    "mp_id": "mp-1095057"
+  },
+  {
+    "chemsys": "Y-Zn",
+    "composition": {
+      "YZn2": 12
+    },
+    "energy": -40.05949676,
+    "energy_per_atom": -3.338291396666667,
+    "entry_id": "mp-1095495-GGA",
+    "mp_id": "mp-1095495"
+  },
+  {
+    "chemsys": "Fe",
+    "composition": {
+      "Fe": 1
+    },
+    "energy": -7.9933217899999995,
+    "energy_per_atom": -7.9933217899999995,
+    "entry_id": "mp-1096950-GGA",
+    "mp_id": "mp-1096950"
+  },
+  {
+    "chemsys": "Gd-Ni",
+    "composition": {
+      "GdNi3": 12
+    },
+    "energy": -98.85066839999999,
+    "energy_per_atom": -8.2375557,
+    "entry_id": "mp-1101986-GGA",
+    "mp_id": "mp-1101986"
+  },
+  {
+    "chemsys": "Fe-Y",
+    "composition": {
+      "YFe3": 12
+    },
+    "energy": -96.3611919,
+    "energy_per_atom": -8.030099325,
+    "entry_id": "mp-1102392-GGA",
+    "mp_id": "mp-1102392"
+  },
+  {
+    "chemsys": "Cu-Y",
+    "composition": {
+      "YCu2": 12
+    },
+    "energy": -60.91089517,
+    "energy_per_atom": -5.075907930833334,
+    "entry_id": "mp-1102436-GGA",
+    "mp_id": "mp-1102436"
+  },
+  {
+    "chemsys": "Mn-Y",
+    "composition": {
+      "YMn2": 12
+    },
+    "energy": -97.90514056,
+    "energy_per_atom": -8.158761713333334,
+    "entry_id": "mp-1103127-GGA",
+    "mp_id": "mp-1103127"
+  },
+  {
+    "chemsys": "Y-Zn",
+    "composition": {
+      "Y3Zn11": 14
+    },
+    "energy": -38.14404975,
+    "energy_per_atom": -2.7245749821428573,
+    "entry_id": "mp-1103536-GGA",
+    "mp_id": "mp-1103536"
+  },
+  {
+    "chemsys": "Fe-Y",
+    "composition": {
+      "YFe12": 13
+    },
+    "energy": -108.09858511000002,
+    "energy_per_atom": -8.315275777692309,
+    "entry_id": "mp-1104222-GGA",
+    "mp_id": "mp-1104222"
+  },
+  {
+    "chemsys": "Cr-Fe-Y",
+    "composition": {
+      "Y(CrFe2)4": 13
+    },
+    "energy": -112.77406256999998,
+    "energy_per_atom": -8.67492789,
+    "entry_id": "mp-1104258-GGA",
+    "mp_id": "mp-1104258"
+  },
+  {
+    "chemsys": "Fe-Y",
+    "composition": {
+      "Y2Fe17": 19
+    },
+    "energy": -157.04950264,
+    "energy_per_atom": -8.265763296842104,
+    "entry_id": "mp-1105569-GGA",
+    "mp_id": "mp-1105569"
+  },
+  {
+    "chemsys": "Co-Y",
+    "composition": {
+      "Y3Co": 16
+    },
+    "energy": -108.33819804,
+    "energy_per_atom": -6.7711373775,
+    "entry_id": "mp-1105598-GGA",
+    "mp_id": "mp-1105598"
+  },
+  {
+    "chemsys": "Ni-Y",
+    "composition": {
+      "Y3Ni": 16
+    },
+    "energy": -104.54756575,
+    "energy_per_atom": -6.534222859375,
+    "entry_id": "mp-1105633-GGA",
+    "mp_id": "mp-1105633"
+  },
+  {
+    "chemsys": "Co-Y",
+    "composition": {
+      "Y2Co17": 19
+    },
+    "energy": -135.56480445,
+    "energy_per_atom": -7.134989707894737,
+    "entry_id": "mp-1106140-GGA",
+    "mp_id": "mp-1106140"
+  },
+  {
+    "chemsys": "Y",
+    "composition": {
+      "Y": 2
+    },
+    "energy": -12.92584295,
+    "energy_per_atom": -6.462921475,
+    "entry_id": "mp-112-GGA",
+    "mp_id": "mp-112"
+  },
+  {
+    "chemsys": "Cu",
+    "composition": {
+      "Cu": 6
+    },
+    "energy": -23.64053925,
+    "energy_per_atom": -3.940089875,
+    "entry_id": "mp-1120774-GGA",
+    "mp_id": "mp-1120774"
+  },
+  {
+    "chemsys": "Fe-Y",
+    "composition": {
+      "YFe5": 6
+    },
+    "energy": -49.07187877,
+    "energy_per_atom": -8.178646461666666,
+    "entry_id": "mp-11385-GGA",
+    "mp_id": "mp-11385"
+  },
+  {
+    "chemsys": "Gd",
+    "composition": {
+      "Gd": 1
+    },
+    "energy": -13.98852267,
+    "energy_per_atom": -13.98852267,
+    "entry_id": "mp-11421-GGA",
+    "mp_id": "mp-11421"
+  },
+  {
+    "chemsys": "Ni-V",
+    "composition": {
+      "VNi2": 3
+    },
+    "energy": -21.37093353,
+    "energy_per_atom": -7.123644509999999,
+    "entry_id": "mp-11531-GGA",
+    "mp_id": "mp-11531"
+  },
+  {
+    "chemsys": "Fe-Y",
+    "composition": {
+      "YFe2": 30
+    },
+    "energy": -235.87687346,
+    "energy_per_atom": -7.862562448666667,
+    "entry_id": "mp-1178773-GGA",
+    "mp_id": "mp-1178773"
+  },
+  {
+    "chemsys": "Fe-Y",
+    "composition": {
+      "YFe2": 96
+    },
+    "energy": -754.71523677,
+    "energy_per_atom": -7.8616170496875,
+    "entry_id": "mp-1178900-GGA",
+    "mp_id": "mp-1178900"
+  },
+  {
+    "chemsys": "Ni-Ti",
+    "composition": {
+      "TiNi": 4
+    },
+    "energy": -28.89447586,
+    "energy_per_atom": -7.223618965,
+    "entry_id": "mp-1179013-GGA",
+    "mp_id": "mp-1179013"
+  },
+  {
+    "chemsys": "Fe-Gd",
+    "composition": {
+      "GdFe5": 6
+    },
+    "energy": -56.36772307,
+    "energy_per_atom": -9.394620511666666,
+    "entry_id": "mp-1181137-GGA",
+    "mp_id": "mp-1181137"
+  },
+  {
+    "chemsys": "Co",
+    "composition": {
+      "Co": 4
+    },
+    "energy": -28.4114812,
+    "energy_per_atom": -7.1028703,
+    "entry_id": "mp-1183710-GGA",
+    "mp_id": "mp-1183710"
+  },
+  {
+    "chemsys": "Co-Cu",
+    "composition": {
+      "Co3Cu": 4
+    },
+    "energy": -24.94981159,
+    "energy_per_atom": -6.2374528975,
+    "entry_id": "mp-1183752-GGA",
+    "mp_id": "mp-1183752"
+  },
+  {
+    "chemsys": "Cu-Ni",
+    "composition": {
+      "CuNi3": 4
+    },
+    "energy": -21.31187504,
+    "energy_per_atom": -5.32796876,
+    "entry_id": "mp-1184054-GGA",
+    "mp_id": "mp-1184054"
+  },
+  {
+    "chemsys": "Cu-Ni",
+    "composition": {
+      "CuNi": 2
+    },
+    "energy": -9.82079214,
+    "energy_per_atom": -4.91039607,
+    "entry_id": "mp-1184069-GGA",
+    "mp_id": "mp-1184069"
+  },
+  {
+    "chemsys": "Cu-Fe",
+    "composition": {
+      "Fe3Cu": 4
+    },
+    "energy": -28.78541556,
+    "energy_per_atom": -7.19635389,
+    "entry_id": "mp-1184260-GGA",
+    "mp_id": "mp-1184260"
+  },
+  {
+    "chemsys": "Cu-Fe",
+    "composition": {
+      "Fe3Cu": 4
+    },
+    "energy": -28.98017075,
+    "energy_per_atom": -7.2450426875,
+    "entry_id": "mp-1184311-GGA",
+    "mp_id": "mp-1184311"
+  },
+  {
+    "chemsys": "Cu-Fe",
+    "composition": {
+      "FeCu3": 8
+    },
+    "energy": -40.08527604,
+    "energy_per_atom": -5.010659505,
+    "entry_id": "mp-1184444-GGA",
+    "mp_id": "mp-1184444"
+  },
+  {
+    "chemsys": "Gd-Zn",
+    "composition": {
+      "Gd3Zn": 4
+    },
+    "energy": -43.76607546,
+    "energy_per_atom": -10.941518865,
+    "entry_id": "mp-1184460-GGA",
+    "mp_id": "mp-1184460"
+  },
+  {
+    "chemsys": "Co-Mn",
+    "composition": {
+      "Mn3Co": 8
+    },
+    "energy": -69.31731391,
+    "energy_per_atom": -8.66466423875,
+    "entry_id": "mp-1185970-GGA",
+    "mp_id": "mp-1185970"
+  },
+  {
+    "chemsys": "Co-Mn",
+    "composition": {
+      "MnCo3": 8
+    },
+    "energy": -60.36048485,
+    "energy_per_atom": -7.54506060625,
+    "entry_id": "mp-1186063-GGA",
+    "mp_id": "mp-1186063"
+  },
+  {
+    "chemsys": "Ni-Ti",
+    "composition": {
+      "Ti3Ni": 8
+    },
+    "energy": -59.54645236,
+    "energy_per_atom": -7.443306545,
+    "entry_id": "mp-1187671-GGA",
+    "mp_id": "mp-1187671"
+  },
+  {
+    "chemsys": "Fe-V",
+    "composition": {
+      "V3Fe": 4
+    },
+    "energy": -36.28132391,
+    "energy_per_atom": -9.0703309775,
+    "entry_id": "mp-1187697-GGA",
+    "mp_id": "mp-1187697"
+  },
+  {
+    "chemsys": "Y",
+    "composition": {
+      "Y": 4
+    },
+    "energy": -25.83815292,
+    "energy_per_atom": -6.45953823,
+    "entry_id": "mp-1187717-GGA",
+    "mp_id": "mp-1187717"
+  },
+  {
+    "chemsys": "Y",
+    "composition": {
+      "Y": 3
+    },
+    "energy": -19.39941334,
+    "energy_per_atom": -6.466471113333333,
+    "entry_id": "mp-1187739-GGA",
+    "mp_id": "mp-1187739"
+  },
+  {
+    "chemsys": "Zn",
+    "composition": {
+      "Zn": 3
+    },
+    "energy": -3.74668138,
+    "energy_per_atom": -1.2488937933333333,
+    "entry_id": "mp-1187812-GGA",
+    "mp_id": "mp-1187812"
+  },
+  {
+    "chemsys": "Co-Zn",
+    "composition": {
+      "ZnCo3": 4
+    },
+    "energy": -22.3958012,
+    "energy_per_atom": -5.5989503,
+    "entry_id": "mp-1187951-GGA",
+    "mp_id": "mp-1187951"
+  },
+  {
+    "chemsys": "Co-Zn",
+    "composition": {
+      "ZnCo": 2
+    },
+    "energy": -8.29476841,
+    "energy_per_atom": -4.147384205,
+    "entry_id": "mp-1187978-GGA",
+    "mp_id": "mp-1187978"
+  },
+  {
+    "chemsys": "Co-Zn",
+    "composition": {
+      "Zn3Co": 8
+    },
+    "energy": -22.1908626,
+    "energy_per_atom": -2.773857825,
+    "entry_id": "mp-1187993-GGA",
+    "mp_id": "mp-1187993"
+  },
+  {
+    "chemsys": "Co-Y",
+    "composition": {
+      "Y2Co7": 18
+    },
+    "energy": -126.4492336,
+    "energy_per_atom": -7.024957422222222,
+    "entry_id": "mp-1188333-GGA",
+    "mp_id": "mp-1188333"
+  },
+  {
+    "chemsys": "Co-Mn-Y",
+    "composition": {
+      "Y2Mn5Co12": 19
+    },
+    "energy": -144.60810485,
+    "energy_per_atom": -7.610952886842105,
+    "entry_id": "mp-1188794-GGA",
+    "mp_id": "mp-1188794"
+  },
+  {
+    "chemsys": "Y-Zn",
+    "composition": {
+      "Y2Zn3": 20
+    },
+    "energy": -63.65818276,
+    "energy_per_atom": -3.1829091380000003,
+    "entry_id": "mp-1189228-GGA",
+    "mp_id": "mp-1189228"
+  },
+  {
+    "chemsys": "Ni-Ti",
+    "composition": {
+      "TiNi": 18
+    },
+    "energy": -129.80347486,
+    "energy_per_atom": -7.211304158888889,
+    "entry_id": "mp-1189328-GGA",
+    "mp_id": "mp-1189328"
+  },
+  {
+    "chemsys": "Co-Y",
+    "composition": {
+      "Y3Co": 16
+    },
+    "energy": -108.3132941,
+    "energy_per_atom": -6.76958088125,
+    "entry_id": "mp-1189329-GGA",
+    "mp_id": "mp-1189329"
+  },
+  {
+    "chemsys": "Ni-Ti",
+    "composition": {
+      "TiNi": 16
+    },
+    "energy": -115.1855699,
+    "energy_per_atom": -7.19909811875,
+    "entry_id": "mp-1190013-GGA",
+    "mp_id": "mp-1190013"
+  },
+  {
+    "chemsys": "Cu-Y",
+    "composition": {
+      "Y2Cu3": 20
+    },
+    "energy": -93.99393444,
+    "energy_per_atom": -4.6996967220000005,
+    "entry_id": "mp-1190402-GGA",
+    "mp_id": "mp-1190402"
+  },
+  {
+    "chemsys": "Co-Ti",
+    "composition": {
+      "Ti2Co": 24
+    },
+    "energy": -190.03210522,
+    "energy_per_atom": -7.918004384166667,
+    "entry_id": "mp-1191331-GGA",
+    "mp_id": "mp-1191331"
+  },
+  {
+    "chemsys": "Co-Ti",
+    "composition": {
+      "TiCo2": 24
+    },
+    "energy": -184.21213856,
+    "energy_per_atom": -7.675505773333334,
+    "entry_id": "mp-1191422-GGA",
+    "mp_id": "mp-1191422"
+  },
+  {
+    "chemsys": "Mn",
+    "composition": {
+      "Mn": 22
+    },
+    "energy": -183.81946655,
+    "energy_per_atom": -8.355430297727272,
+    "entry_id": "mp-1191484-GGA",
+    "mp_id": "mp-1191484"
+  },
+  {
+    "chemsys": "Fe-Ti",
+    "composition": {
+      "Ti2Fe": 24
+    },
+    "energy": -199.24492817000004,
+    "energy_per_atom": -8.301872007083334,
+    "entry_id": "mp-1192216-GGA",
+    "mp_id": "mp-1192216"
+  },
+  {
+    "chemsys": "Fe-Y",
+    "composition": {
+      "YFe3": 24
+    },
+    "energy": -192.70775152,
+    "energy_per_atom": -8.029489646666667,
+    "entry_id": "mp-1192321-GGA",
+    "mp_id": "mp-1192321"
+  },
+  {
+    "chemsys": "Co-Zn",
+    "composition": {
+      "Zn11Co2": 26
+    },
+    "energy": -58.71150222,
+    "energy_per_atom": -2.2581347007692307,
+    "entry_id": "mp-1192361-GGA",
+    "mp_id": "mp-1192361"
+  },
+  {
+    "chemsys": "Co-Y",
+    "composition": {
+      "YCo3": 24
+    },
+    "energy": -169.29220327,
+    "energy_per_atom": -7.053841802916666,
+    "entry_id": "mp-1192425-GGA",
+    "mp_id": "mp-1192425"
+  },
+  {
+    "chemsys": "Cr",
+    "composition": {
+      "Cr": 28
+    },
+    "energy": -262.9051383,
+    "energy_per_atom": -9.389469225,
+    "entry_id": "mp-1192789-GGA",
+    "mp_id": "mp-1192789"
+  },
+  {
+    "chemsys": "Y-Zn",
+    "composition": {
+      "Y6Zn23": 29
+    },
+    "energy": -77.20872753,
+    "energy_per_atom": -2.6623699148275866,
+    "entry_id": "mp-1192854-GGA",
+    "mp_id": "mp-1192854"
+  },
+  {
+    "chemsys": "Gd-Zn",
+    "composition": {
+      "Gd6Zn23": 29
+    },
+    "energy": -122.38559459,
+    "energy_per_atom": -4.2201929168965515,
+    "entry_id": "mp-1193017-GGA",
+    "mp_id": "mp-1193017"
+  },
+  {
+    "chemsys": "Co",
+    "composition": {
+      "Co": 28
+    },
+    "energy": -195.49535593,
+    "energy_per_atom": -6.9819769974999994,
+    "entry_id": "mp-1193227-GGA",
+    "mp_id": "mp-1193227"
+  },
+  {
+    "chemsys": "Fe-Mn-Y",
+    "composition": {
+      "Y6Mn14Fe9": 29
+    },
+    "energy": -241.2786683,
+    "energy_per_atom": -8.319954079310344,
+    "entry_id": "mp-1193646-GGA",
+    "mp_id": "mp-1193646"
+  },
+  {
+    "chemsys": "Fe",
+    "composition": {
+      "Fe": 28
+    },
+    "energy": -232.25250971999998,
+    "energy_per_atom": -8.29473249,
+    "entry_id": "mp-1194030-GGA",
+    "mp_id": "mp-1194030"
+  },
+  {
+    "chemsys": "Fe-Gd",
+    "composition": {
+      "Gd6Fe23": 29
+    },
+    "energy": -243.22853399999997,
+    "energy_per_atom": -8.387190827586206,
+    "entry_id": "mp-1194558-GGA",
+    "mp_id": "mp-1194558"
+  },
+  {
+    "chemsys": "Cu-Gd",
+    "composition": {
+      "GdCu6": 28
+    },
+    "energy": -158.72027279,
+    "energy_per_atom": -5.668581171071429,
+    "entry_id": "mp-1194708-GGA",
+    "mp_id": "mp-1194708"
+  },
+  {
+    "chemsys": "Gd-Mn",
+    "composition": {
+      "Gd6Mn23": 29
+    },
+    "energy": -268.3173979,
+    "energy_per_atom": -9.252324065517241,
+    "entry_id": "mp-1194710-GGA",
+    "mp_id": "mp-1194710"
+  },
+  {
+    "chemsys": "Fe-Y",
+    "composition": {
+      "Y2Fe17": 38
+    },
+    "energy": -314.14596258,
+    "energy_per_atom": -8.266999015263158,
+    "entry_id": "mp-1196012-GGA",
+    "mp_id": "mp-1196012"
+  },
+  {
+    "chemsys": "Ni-Y",
+    "composition": {
+      "Y2Ni17": 38
+    },
+    "energy": -229.76841613,
+    "energy_per_atom": -6.046537266578947,
+    "entry_id": "mp-1196175-GGA",
+    "mp_id": "mp-1196175"
+  },
+  {
+    "chemsys": "Fe-Gd",
+    "composition": {
+      "Gd2Fe17": 38
+    },
+    "energy": -344.50244813,
+    "energy_per_atom": -9.065853898157895,
+    "entry_id": "mp-1196805-GGA",
+    "mp_id": "mp-1196805"
+  },
+  {
+    "chemsys": "Gd-Zn",
+    "composition": {
+      "Gd2Zn17": 38
+    },
+    "energy": -108.47362898,
+    "energy_per_atom": -2.8545691836842106,
+    "entry_id": "mp-1198632-GGA",
+    "mp_id": "mp-1198632"
+  },
+  {
+    "chemsys": "Co-Cu-Y",
+    "composition": {
+      "Y2Co14Cu3": 38
+    },
+    "energy": -250.42613140999998,
+    "energy_per_atom": -6.590161352894737,
+    "entry_id": "mp-1199930-GGA",
+    "mp_id": "mp-1199930"
+  },
+  {
+    "chemsys": "Ni-Y",
+    "composition": {
+      "Y15Ni32": 47
+    },
+    "energy": -301.79487131,
+    "energy_per_atom": -6.421167474680852,
+    "entry_id": "mp-1200338-GGA",
+    "mp_id": "mp-1200338"
+  },
+  {
+    "chemsys": "Y-Zn",
+    "composition": {
+      "Y2Zn17": 38
+    },
+    "energy": -78.03539814,
+    "energy_per_atom": -2.0535631089473685,
+    "entry_id": "mp-1200992-GGA",
+    "mp_id": "mp-1200992"
+  },
+  {
+    "chemsys": "Ni-Y",
+    "composition": {
+      "Y2Ni7": 36
+    },
+    "energy": -226.99345149,
+    "energy_per_atom": -6.3053736525,
+    "entry_id": "mp-1201276-GGA",
+    "mp_id": "mp-1201276"
+  },
+  {
+    "chemsys": "Co-Gd",
+    "composition": {
+      "Gd2Co17": 38
+    },
+    "energy": -272.57953281,
+    "energy_per_atom": -7.173145600263157,
+    "entry_id": "mp-1201816-GGA",
+    "mp_id": "mp-1201816"
+  },
+  {
+    "chemsys": "Y-Zn",
+    "composition": {
+      "YZn5": 36
+    },
+    "energy": -86.85086644,
+    "energy_per_atom": -2.412524067777778,
+    "entry_id": "mp-1202791-GGA",
+    "mp_id": "mp-1202791"
+  },
+  {
+    "chemsys": "Co-Gd-Zn",
+    "composition": {
+      "Gd(Zn10Co)2": 46
+    },
+    "energy": -114.74618773,
+    "energy_per_atom": -2.494482341956522,
+    "entry_id": "mp-1204825-GGA",
+    "mp_id": "mp-1204825"
+  },
+  {
+    "chemsys": "Fe-Zn",
+    "composition": {
+      "Zn9Fe4": 26
+    },
+    "energy": -91.55948117,
+    "energy_per_atom": -3.5215185065384613,
+    "entry_id": "mp-1207450-GGA",
+    "mp_id": "mp-1207450"
+  },
+  {
+    "chemsys": "Co-Zn",
+    "composition": {
+      "Zn17Co3": 60
+    },
+    "energy": -133.34159137,
+    "energy_per_atom": -2.222359856166667,
+    "entry_id": "mp-1207538-GGA",
+    "mp_id": "mp-1207538"
+  },
+  {
+    "chemsys": "Cr-Fe-Y",
+    "composition": {
+      "Y2Cr2Fe15": 38
+    },
+    "energy": -318.13928363,
+    "energy_per_atom": -8.37208641131579,
+    "entry_id": "mp-1207800-GGA",
+    "mp_id": "mp-1207800"
+  },
+  {
+    "chemsys": "Ni-Y",
+    "composition": {
+      "Y4Ni": 10
+    },
+    "energy": -60.815041640000004,
+    "energy_per_atom": -6.081504164,
+    "entry_id": "mp-1207883-GGA",
+    "mp_id": "mp-1207883"
+  },
+  {
+    "chemsys": "Co-Ti",
+    "composition": {
+      "TiCo4": 10
+    },
+    "energy": -65.37779083,
+    "energy_per_atom": -6.537779082999999,
+    "entry_id": "mp-1208216-GGA",
+    "mp_id": "mp-1208216"
+  },
+  {
+    "chemsys": "Co-Ti",
+    "composition": {
+      "Ti4Co": 10
+    },
+    "energy": -72.45449192,
+    "energy_per_atom": -7.245449192,
+    "entry_id": "mp-1208254-GGA",
+    "mp_id": "mp-1208254"
+  },
+  {
+    "chemsys": "Co-Zn",
+    "composition": {
+      "ZnCo2": 3
+    },
+    "energy": -15.41616715,
+    "energy_per_atom": -5.1387223833333335,
+    "entry_id": "mp-1215431-GGA",
+    "mp_id": "mp-1215431"
+  },
+  {
+    "chemsys": "Fe-Zn",
+    "composition": {
+      "ZnFe": 2
+    },
+    "energy": -9.74708326,
+    "energy_per_atom": -4.87354163,
+    "entry_id": "mp-1215473-GGA",
+    "mp_id": "mp-1215473"
+  },
+  {
+    "chemsys": "Fe-Zn",
+    "composition": {
+      "ZnFe3": 4
+    },
+    "energy": -26.58990509,
+    "energy_per_atom": -6.6474762725,
+    "entry_id": "mp-1215526-GGA",
+    "mp_id": "mp-1215526"
+  },
+  {
+    "chemsys": "Fe-Zn",
+    "composition": {
+      "Zn13Fe": 14
+    },
+    "energy": -23.85083923,
+    "energy_per_atom": -1.7036313735714284,
+    "entry_id": "mp-1215649-GGA",
+    "mp_id": "mp-1215649"
+  },
+  {
+    "chemsys": "Fe-Zn",
+    "composition": {
+      "Zn10Fe3": 26
+    },
+    "energy": -76.87799088,
+    "energy_per_atom": -2.956845803076923,
+    "entry_id": "mp-1215735-GGA",
+    "mp_id": "mp-1215735"
+  },
+  {
+    "chemsys": "Fe-V-Y",
+    "composition": {
+      "YVFe11": 13
+    },
+    "energy": -109.45677573999998,
+    "energy_per_atom": -8.41975198,
+    "entry_id": "mp-1215844-GGA",
+    "mp_id": "mp-1215844"
+  },
+  {
+    "chemsys": "Fe-Zn",
+    "composition": {
+      "Zn9Fe4": 26
+    },
+    "energy": -89.36986519,
+    "energy_per_atom": -3.437302507307692,
+    "entry_id": "mp-1215884-GGA",
+    "mp_id": "mp-1215884"
+  },
+  {
+    "chemsys": "Co-Zn",
+    "composition": {
+      "Zn53Co7": 60
+    },
+    "energy": -121.90260089999998,
+    "energy_per_atom": -2.031710015,
+    "entry_id": "mp-1215897-GGA",
+    "mp_id": "mp-1215897"
+  },
+  {
+    "chemsys": "Fe-Mn-Y",
+    "composition": {
+      "YMnFe": 6
+    },
+    "energy": -47.89449879,
+    "energy_per_atom": -7.982416465,
+    "entry_id": "mp-1215943-GGA",
+    "mp_id": "mp-1215943"
+  },
+  {
+    "chemsys": "Co-Mn-Y",
+    "composition": {
+      "YMnCo": 6
+    },
+    "energy": -45.91345578,
+    "energy_per_atom": -7.65224263,
+    "entry_id": "mp-1215953-GGA",
+    "mp_id": "mp-1215953"
+  },
+  {
+    "chemsys": "Cu-Fe-Y",
+    "composition": {
+      "YFeCu": 6
+    },
+    "energy": -38.29638365,
+    "energy_per_atom": -6.3827306083333335,
+    "entry_id": "mp-1215980-GGA",
+    "mp_id": "mp-1215980"
+  },
+  {
+    "chemsys": "Co-Ti-Y",
+    "composition": {
+      "YTiCo11": 13
+    },
+    "energy": -94.30616771,
+    "energy_per_atom": -7.254320593076923,
+    "entry_id": "mp-1215991-GGA",
+    "mp_id": "mp-1215991"
+  },
+  {
+    "chemsys": "Cr-Fe-Y",
+    "composition": {
+      "YCrFe11": 13
+    },
+    "energy": -109.47786414,
+    "energy_per_atom": -8.421374164615385,
+    "entry_id": "mp-1216029-GGA",
+    "mp_id": "mp-1216029"
+  },
+  {
+    "chemsys": "Cr-Fe-Y",
+    "composition": {
+      "YCr5Fe7": 13
+    },
+    "energy": -113.66032659,
+    "energy_per_atom": -8.743102045384616,
+    "entry_id": "mp-1216062-GGA",
+    "mp_id": "mp-1216062"
+  },
+  {
+    "chemsys": "Co-Mn-Y",
+    "composition": {
+      "Y2Mn3Co": 6
+    },
+    "energy": -46.61992948,
+    "energy_per_atom": -7.769988246666667,
+    "entry_id": "mp-1216070-GGA",
+    "mp_id": "mp-1216070"
+  },
+  {
+    "chemsys": "Fe-Mn-Y",
+    "composition": {
+      "Y2Mn3Fe": 6
+    },
+    "energy": -48.237334270000005,
+    "energy_per_atom": -8.039555711666667,
+    "entry_id": "mp-1216095-GGA",
+    "mp_id": "mp-1216095"
+  },
+  {
+    "chemsys": "Cr-Fe-Y",
+    "composition": {
+      "Y(CrFe5)2": 13
+    },
+    "energy": -110.39478129,
+    "energy_per_atom": -8.491906253076923,
+    "entry_id": "mp-1216159-GGA",
+    "mp_id": "mp-1216159"
+  },
+  {
+    "chemsys": "Fe-V-Y",
+    "composition": {
+      "Y(VFe5)2": 13
+    },
+    "energy": -110.24006918,
+    "energy_per_atom": -8.480005321538462,
+    "entry_id": "mp-1216170-GGA",
+    "mp_id": "mp-1216170"
+  },
+  {
+    "chemsys": "Cr-Fe-Y",
+    "composition": {
+      "Y(CrFe3)3": 13
+    },
+    "energy": -111.61093985,
+    "energy_per_atom": -8.585456911538461,
+    "entry_id": "mp-1216176-GGA",
+    "mp_id": "mp-1216176"
+  },
+  {
+    "chemsys": "Co-V-Y",
+    "composition": {
+      "Y(VCo5)2": 13
+    },
+    "energy": -96.92250428,
+    "energy_per_atom": -7.455577252307692,
+    "entry_id": "mp-1216182-GGA",
+    "mp_id": "mp-1216182"
+  },
+  {
+    "chemsys": "Co-V-Y",
+    "composition": {
+      "Y3VCo8": 12
+    },
+    "energy": -86.97132962,
+    "energy_per_atom": -7.247610801666667,
+    "entry_id": "mp-1216183-GGA",
+    "mp_id": "mp-1216183"
+  },
+  {
+    "chemsys": "Co-Cu-Y",
+    "composition": {
+      "Y2(CoCu)5": 12
+    },
+    "energy": -69.71366121,
+    "energy_per_atom": -5.8094717675,
+    "entry_id": "mp-1216214-GGA",
+    "mp_id": "mp-1216214"
+  },
+  {
+    "chemsys": "Co-Mn-Y",
+    "composition": {
+      "Y(MnCo)6": 13
+    },
+    "energy": -104.13035864999999,
+    "energy_per_atom": -8.010027588461538,
+    "entry_id": "mp-1216254-GGA",
+    "mp_id": "mp-1216254"
+  },
+  {
+    "chemsys": "Co-Y",
+    "composition": {
+      "Y4Co3": 21
+    },
+    "energy": -144.7006495,
+    "energy_per_atom": -6.890507119047619,
+    "entry_id": "mp-1216292-GGA",
+    "mp_id": "mp-1216292"
+  },
+  {
+    "chemsys": "Ni-V",
+    "composition": {
+      "VNi": 2
+    },
+    "energy": -14.88963436,
+    "energy_per_atom": -7.44481718,
+    "entry_id": "mp-1216313-GGA",
+    "mp_id": "mp-1216313"
+  },
+  {
+    "chemsys": "Ni-V",
+    "composition": {
+      "VNi3": 4
+    },
+    "energy": -26.80655368,
+    "energy_per_atom": -6.70163842,
+    "entry_id": "mp-1216314-GGA",
+    "mp_id": "mp-1216314"
+  },
+  {
+    "chemsys": "Ni-V",
+    "composition": {
+      "VNi3": 4
+    },
+    "energy": -26.52430896,
+    "energy_per_atom": -6.63107724,
+    "entry_id": "mp-1216317-GGA",
+    "mp_id": "mp-1216317"
+  },
+  {
+    "chemsys": "Fe-V",
+    "composition": {
+      "VFe4": 5
+    },
+    "energy": -43.18217222,
+    "energy_per_atom": -8.636434443999999,
+    "entry_id": "mp-1216329-GGA",
+    "mp_id": "mp-1216329"
+  },
+  {
+    "chemsys": "Fe-V",
+    "composition": {
+      "VFe": 2
+    },
+    "energy": -17.7610862,
+    "energy_per_atom": -8.8805431,
+    "entry_id": "mp-1216347-GGA",
+    "mp_id": "mp-1216347"
+  },
+  {
+    "chemsys": "Fe-V",
+    "composition": {
+      "VFe3": 4
+    },
+    "energy": -34.71610511,
+    "energy_per_atom": -8.6790262775,
+    "entry_id": "mp-1216352-GGA",
+    "mp_id": "mp-1216352"
+  },
+  {
+    "chemsys": "Co-V",
+    "composition": {
+      "VCo4": 5
+    },
+    "energy": -37.26296924,
+    "energy_per_atom": -7.452593847999999,
+    "entry_id": "mp-1216400-GGA",
+    "mp_id": "mp-1216400"
+  },
+  {
+    "chemsys": "Co-V",
+    "composition": {
+      "VCo3": 4
+    },
+    "energy": -30.21776555,
+    "energy_per_atom": -7.5544413875,
+    "entry_id": "mp-1216405-GGA",
+    "mp_id": "mp-1216405"
+  },
+  {
+    "chemsys": "Ni-V",
+    "composition": {
+      "V3Ni2": 30
+    },
+    "energy": -238.49829017,
+    "energy_per_atom": -7.9499430056666665,
+    "entry_id": "mp-1216708-GGA",
+    "mp_id": "mp-1216708"
+  },
+  {
+    "chemsys": "Fe-Ti",
+    "composition": {
+      "TiFe": 2
+    },
+    "energy": -16.59281086,
+    "energy_per_atom": -8.29640543,
+    "entry_id": "mp-1216834-GGA",
+    "mp_id": "mp-1216834"
+  },
+  {
+    "chemsys": "Ni-Ti",
+    "composition": {
+      "TiNi": 6
+    },
+    "energy": -41.6232535,
+    "energy_per_atom": -6.937208916666666,
+    "entry_id": "mp-1216890-GGA",
+    "mp_id": "mp-1216890"
+  },
+  {
+    "chemsys": "Fe-Ti",
+    "composition": {
+      "TiFe4": 5
+    },
+    "energy": -41.14623729,
+    "energy_per_atom": -8.229247458,
+    "entry_id": "mp-1216986-GGA",
+    "mp_id": "mp-1216986"
+  },
+  {
+    "chemsys": "Fe-Ti",
+    "composition": {
+      "Ti4Fe": 5
+    },
+    "energy": -40.07005932,
+    "energy_per_atom": -8.014011864,
+    "entry_id": "mp-1217161-GGA",
+    "mp_id": "mp-1217161"
+  },
+  {
+    "chemsys": "Fe-Ti",
+    "composition": {
+      "Ti3Fe": 4
+    },
+    "energy": -31.99076479,
+    "energy_per_atom": -7.9976911975,
+    "entry_id": "mp-1217177-GGA",
+    "mp_id": "mp-1217177"
+  },
+  {
+    "chemsys": "Fe-Mn",
+    "composition": {
+      "MnFe3": 4
+    },
+    "energy": -34.30948263,
+    "energy_per_atom": -8.5773706575,
+    "entry_id": "mp-1221628-GGA",
+    "mp_id": "mp-1221628"
+  },
+  {
+    "chemsys": "Fe-Mn",
+    "composition": {
+      "MnFe4": 5
+    },
+    "energy": -42.86434446999999,
+    "energy_per_atom": -8.572868893999999,
+    "entry_id": "mp-1221635-GGA",
+    "mp_id": "mp-1221635"
+  },
+  {
+    "chemsys": "Fe-Mn",
+    "composition": {
+      "Mn7Fe3": 20
+    },
+    "energy": -177.33831723000003,
+    "energy_per_atom": -8.8669158615,
+    "entry_id": "mp-1221991-GGA",
+    "mp_id": "mp-1221991"
+  },
+  {
+    "chemsys": "Cu-Fe",
+    "composition": {
+      "FeCu": 2
+    },
+    "energy": -12.22556718,
+    "energy_per_atom": -6.11278359,
+    "entry_id": "mp-1224945-GGA",
+    "mp_id": "mp-1224945"
+  },
+  {
+    "chemsys": "Cu-Fe",
+    "composition": {
+      "FeCu3": 4
+    },
+    "energy": -20.34559219,
+    "energy_per_atom": -5.0863980475,
+    "entry_id": "mp-1224953-GGA",
+    "mp_id": "mp-1224953"
+  },
+  {
+    "chemsys": "Cu-Fe",
+    "composition": {
+      "FeCu4": 5
+    },
+    "energy": -24.55885346,
+    "energy_per_atom": -4.911770692,
+    "entry_id": "mp-1224977-GGA",
+    "mp_id": "mp-1224977"
+  },
+  {
+    "chemsys": "Cu-Fe",
+    "composition": {
+      "Fe3Cu": 4
+    },
+    "energy": -29.22766537,
+    "energy_per_atom": -7.3069163425,
+    "entry_id": "mp-1225131-GGA",
+    "mp_id": "mp-1225131"
+  },
+  {
+    "chemsys": "Cu-Ni",
+    "composition": {
+      "CuNi": 2
+    },
+    "energy": -9.84238189,
+    "energy_per_atom": -4.921190945,
+    "entry_id": "mp-1225687-GGA",
+    "mp_id": "mp-1225687"
+  },
+  {
+    "chemsys": "Cu-Ni",
+    "composition": {
+      "CuNi3": 4
+    },
+    "energy": -21.07098319,
+    "energy_per_atom": -5.2677457975,
+    "entry_id": "mp-1225694-GGA",
+    "mp_id": "mp-1225694"
+  },
+  {
+    "chemsys": "Cu-Ni",
+    "composition": {
+      "CuNi": 2
+    },
+    "energy": -9.74961831,
+    "energy_per_atom": -4.874809155,
+    "entry_id": "mp-1225695-GGA",
+    "mp_id": "mp-1225695"
+  },
+  {
+    "chemsys": "Cu-Ni",
+    "composition": {
+      "Cu3Ni": 4
+    },
+    "energy": -17.87572041,
+    "energy_per_atom": -4.4689301025,
+    "entry_id": "mp-1225698-GGA",
+    "mp_id": "mp-1225698"
+  },
+  {
+    "chemsys": "Co-Gd",
+    "composition": {
+      "Gd4Co3": 21
+    },
+    "energy": -235.71329067,
+    "energy_per_atom": -11.224442412857142,
+    "entry_id": "mp-1225806-GGA",
+    "mp_id": "mp-1225806"
+  },
+  {
+    "chemsys": "Co-Cr",
+    "composition": {
+      "CrCo3": 4
+    },
+    "energy": -30.64142997,
+    "energy_per_atom": -7.6603574925,
+    "entry_id": "mp-1226209-GGA",
+    "mp_id": "mp-1226209"
+  },
+  {
+    "chemsys": "Cr-Fe",
+    "composition": {
+      "CrFe": 2
+    },
+    "energy": -17.93740134,
+    "energy_per_atom": -8.96870067,
+    "entry_id": "mp-1226211-GGA",
+    "mp_id": "mp-1226211"
+  },
+  {
+    "chemsys": "Cr-Fe",
+    "composition": {
+      "CrFe4": 5
+    },
+    "energy": -43.38334228,
+    "energy_per_atom": -8.676668456,
+    "entry_id": "mp-1226230-GGA",
+    "mp_id": "mp-1226230"
+  },
+  {
+    "chemsys": "Co-Cr",
+    "composition": {
+      "Cr3Co2": 30
+    },
+    "energy": -256.69826319,
+    "energy_per_atom": -8.556608772999999,
+    "entry_id": "mp-1226444-GGA",
+    "mp_id": "mp-1226444"
+  },
+  {
+    "chemsys": "Co-Cr",
+    "composition": {
+      "Cr8Co7": 30
+    },
+    "energy": -250.77882194,
+    "energy_per_atom": -8.359294064666667,
+    "entry_id": "mp-1227307-GGA",
+    "mp_id": "mp-1227307"
+  },
+  {
+    "chemsys": "Ti",
+    "composition": {
+      "Ti": 6
+    },
+    "energy": -45.51110526,
+    "energy_per_atom": -7.58518421,
+    "entry_id": "mp-1238818-GGA",
+    "mp_id": "mp-1238818"
+  },
+  {
+    "chemsys": "Ti",
+    "composition": {
+      "Ti": 100
+    },
+    "energy": -771.22051535,
+    "energy_per_atom": -7.7122051535,
+    "entry_id": "mp-1244924-GGA",
+    "mp_id": "mp-1244924"
+  },
+  {
+    "chemsys": "Zn",
+    "composition": {
+      "Zn": 100
+    },
+    "energy": -120.13688532,
+    "energy_per_atom": -1.2013688532,
+    "entry_id": "mp-1244987-GGA",
+    "mp_id": "mp-1244987"
+  },
+  {
+    "chemsys": "Ti",
+    "composition": {
+      "Ti": 100
+    },
+    "energy": -775.41080328,
+    "energy_per_atom": -7.7541080328,
+    "entry_id": "mp-1245006-GGA",
+    "mp_id": "mp-1245006"
+  },
+  {
+    "chemsys": "Zn",
+    "composition": {
+      "Zn": 100
+    },
+    "energy": -120.46746948,
+    "energy_per_atom": -1.2046746948,
+    "entry_id": "mp-1245093-GGA",
+    "mp_id": "mp-1245093"
+  },
+  {
+    "chemsys": "Fe",
+    "composition": {
+      "Fe": 100
+    },
+    "energy": -819.05657127,
+    "energy_per_atom": -8.1905657127,
+    "entry_id": "mp-1245108-GGA",
+    "mp_id": "mp-1245108"
+  },
+  {
+    "chemsys": "Ti",
+    "composition": {
+      "Ti": 100
+    },
+    "energy": -775.71601314,
+    "energy_per_atom": -7.7571601314,
+    "entry_id": "mp-1245164-GGA",
+    "mp_id": "mp-1245164"
+  },
+  {
+    "chemsys": "Ti",
+    "composition": {
+      "Ti": 100
+    },
+    "energy": -772.5877728,
+    "energy_per_atom": -7.725877728,
+    "entry_id": "mp-1245170-GGA",
+    "mp_id": "mp-1245170"
+  },
+  {
+    "chemsys": "Zn",
+    "composition": {
+      "Zn": 100
+    },
+    "energy": -121.08917173,
+    "energy_per_atom": -1.2108917173,
+    "entry_id": "mp-1245184-GGA",
+    "mp_id": "mp-1245184"
+  },
+  {
+    "chemsys": "Zn",
+    "composition": {
+      "Zn": 100
+    },
+    "energy": -120.74276352,
+    "energy_per_atom": -1.2074276352,
+    "entry_id": "mp-1245266-GGA",
+    "mp_id": "mp-1245266"
+  },
+  {
+    "chemsys": "Ti",
+    "composition": {
+      "Ti": 100
+    },
+    "energy": -774.03900131,
+    "energy_per_atom": -7.7403900131,
+    "entry_id": "mp-1245320-GGA",
+    "mp_id": "mp-1245320"
+  },
+  {
+    "chemsys": "Ni",
+    "composition": {
+      "Ni": 1
+    },
+    "energy": -5.37022588,
+    "energy_per_atom": -5.37022588,
+    "entry_id": "mp-1246134-GGA",
+    "mp_id": "mp-1246134"
+  },
+  {
+    "chemsys": "Fe",
+    "composition": {
+      "Fe": 4
+    },
+    "energy": -33.81180542,
+    "energy_per_atom": -8.452951355,
+    "entry_id": "mp-1271068-GGA",
+    "mp_id": "mp-1271068"
+  },
+  {
+    "chemsys": "Fe",
+    "composition": {
+      "Fe": 2
+    },
+    "energy": -16.74177322,
+    "energy_per_atom": -8.37088661,
+    "entry_id": "mp-1271128-GGA",
+    "mp_id": "mp-1271128"
+  },
+  {
+    "chemsys": "Co",
+    "composition": {
+      "Co": 4
+    },
+    "energy": -28.39269147,
+    "energy_per_atom": -7.0981728675,
+    "entry_id": "mp-1271142-GGA",
+    "mp_id": "mp-1271142"
+  },
+  {
+    "chemsys": "Fe",
+    "composition": {
+      "Fe": 4
+    },
+    "energy": -33.6601167,
+    "energy_per_atom": -8.415029175,
+    "entry_id": "mp-1271198-GGA",
+    "mp_id": "mp-1271198"
+  },
+  {
+    "chemsys": "Co-Y",
+    "composition": {
+      "YCo2": 6
+    },
+    "energy": -42.42763874,
+    "energy_per_atom": -7.0712731233333335,
+    "entry_id": "mp-1294-GGA",
+    "mp_id": "mp-1294"
+  },
+  {
+    "chemsys": "Fe",
+    "composition": {
+      "Fe": 2
+    },
+    "energy": -16.94004242,
+    "energy_per_atom": -8.47002121,
+    "entry_id": "mp-13-GGA",
+    "mp_id": "mp-13"
+  },
+  {
+    "chemsys": "Fe-V",
+    "composition": {
+      "VFe": 2
+    },
+    "energy": -17.80795096,
+    "energy_per_atom": -8.90397548,
+    "entry_id": "mp-1335-GGA",
+    "mp_id": "mp-1335"
+  },
+  {
+    "chemsys": "Fe-Y",
+    "composition": {
+      "Y3Fe29": 32
+    },
+    "energy": -265.12392621,
+    "energy_per_atom": -8.2851226940625,
+    "entry_id": "mp-13412-GGA",
+    "mp_id": "mp-13412"
+  },
+  {
+    "chemsys": "Mn-Y",
+    "composition": {
+      "Y6Mn23": 29
+    },
+    "energy": -246.72828162999997,
+    "energy_per_atom": -8.507871780344827,
+    "entry_id": "mp-1355-GGA",
+    "mp_id": "mp-1355"
+  },
+  {
+    "chemsys": "Fe",
+    "composition": {
+      "Fe": 2
+    },
+    "energy": -16.74443058,
+    "energy_per_atom": -8.37221529,
+    "entry_id": "mp-136-GGA",
+    "mp_id": "mp-136"
+  },
+  {
+    "chemsys": "Ni-Y",
+    "composition": {
+      "YNi": 8
+    },
+    "energy": -52.44103039,
+    "energy_per_atom": -6.55512879875,
+    "entry_id": "mp-1364-GGA",
+    "mp_id": "mp-1364"
+  },
+  {
+    "chemsys": "Ni-Ti",
+    "composition": {
+      "TiNi3": 16
+    },
+    "energy": -108.66833051,
+    "energy_per_atom": -6.791770656875,
+    "entry_id": "mp-1409-GGA",
+    "mp_id": "mp-1409"
+  },
+  {
+    "chemsys": "V",
+    "composition": {
+      "V": 1
+    },
+    "energy": -9.08390607,
+    "energy_per_atom": -9.08390607,
+    "entry_id": "mp-146-GGA",
+    "mp_id": "mp-146"
+  },
+  {
+    "chemsys": "Fe",
+    "composition": {
+      "Fe": 1
+    },
+    "energy": -8.32165671,
+    "energy_per_atom": -8.32165671,
+    "entry_id": "mp-150-GGA",
+    "mp_id": "mp-150"
+  },
+  {
+    "chemsys": "Gd",
+    "composition": {
+      "Gd": 2
+    },
+    "energy": -28.15224448,
+    "energy_per_atom": -14.07612224,
+    "entry_id": "mp-155-GGA",
+    "mp_id": "mp-155"
+  },
+  {
+    "chemsys": "Fe-Y",
+    "composition": {
+      "YFe2": 6
+    },
+    "energy": -47.18765438,
+    "energy_per_atom": -7.864609063333333,
+    "entry_id": "mp-1570-GGA",
+    "mp_id": "mp-1570"
+  },
+  {
+    "chemsys": "Co-V",
+    "composition": {
+      "V3Co": 8
+    },
+    "energy": -70.28982049,
+    "energy_per_atom": -8.78622756125,
+    "entry_id": "mp-1585-GGA",
+    "mp_id": "mp-1585"
+  },
+  {
+    "chemsys": "Cr",
+    "composition": {
+      "Cr": 8
+    },
+    "energy": -76.5753519,
+    "energy_per_atom": -9.5719189875,
+    "entry_id": "mp-17-GGA",
+    "mp_id": "mp-17"
+  },
+  {
+    "chemsys": "Ni-V",
+    "composition": {
+      "VNi3": 4
+    },
+    "energy": -27.39289093,
+    "energy_per_atom": -6.8482227325,
+    "entry_id": "mp-171-GGA",
+    "mp_id": "mp-171"
+  },
+  {
+    "chemsys": "Fe-Zn",
+    "composition": {
+      "Zn13Fe": 14
+    },
+    "energy": -25.27852804,
+    "energy_per_atom": -1.8056091457142858,
+    "entry_id": "mp-1722-GGA",
+    "mp_id": "mp-1722"
+  },
+  {
+    "chemsys": "Y-Zn",
+    "composition": {
+      "Y2Zn17": 19
+    },
+    "energy": -39.08507151,
+    "energy_per_atom": -2.057109026842105,
+    "entry_id": "mp-17639-GGA",
+    "mp_id": "mp-17639"
+  },
+  {
+    "chemsys": "Y-Zn",
+    "composition": {
+      "YZn": 2
+    },
+    "energy": -7.9025236,
+    "energy_per_atom": -3.9512618,
+    "entry_id": "mp-179-GGA",
+    "mp_id": "mp-179"
+  },
+  {
+    "chemsys": "Ni-Ti",
+    "composition": {
+      "Ti2Ni": 24
+    },
+    "energy": -179.22485226,
+    "energy_per_atom": -7.4677021775000005,
+    "entry_id": "mp-1808-GGA",
+    "mp_id": "mp-1808"
+  },
+  {
+    "chemsys": "Gd",
+    "composition": {
+      "Gd": 4
+    },
+    "energy": -56.18364039,
+    "energy_per_atom": -14.0459100975,
+    "entry_id": "mp-19981-GGA",
+    "mp_id": "mp-19981"
+  },
+  {
+    "chemsys": "Fe-Gd",
+    "composition": {
+      "GdFe2": 6
+    },
+    "energy": -61.93492478,
+    "energy_per_atom": -10.322487463333333,
+    "entry_id": "mp-20089-GGA",
+    "mp_id": "mp-20089"
+  },
+  {
+    "chemsys": "Gd-Ni",
+    "composition": {
+      "GdNi5": 6
+    },
+    "energy": -44.83774157,
+    "energy_per_atom": -7.472956928333333,
+    "entry_id": "mp-21305-GGA",
+    "mp_id": "mp-21305"
+  },
+  {
+    "chemsys": "Ni-Y",
+    "composition": {
+      "YNi5": 6
+    },
+    "energy": -37.27941091,
+    "energy_per_atom": -6.213235151666667,
+    "entry_id": "mp-2152-GGA",
+    "mp_id": "mp-2152"
+  },
+  {
+    "chemsys": "Mn-Y",
+    "composition": {
+      "YMn12": 13
+    },
+    "energy": -116.42894216,
+    "energy_per_atom": -8.956072473846154,
+    "entry_id": "mp-22508-GGA",
+    "mp_id": "mp-22508"
+  },
+  {
+    "chemsys": "Ni",
+    "composition": {
+      "Ni": 1
+    },
+    "energy": -5.78013668,
+    "energy_per_atom": -5.78013668,
+    "entry_id": "mp-23-GGA",
+    "mp_id": "mp-23"
+  },
+  {
+    "chemsys": "Fe-Ti",
+    "composition": {
+      "TiFe2": 12
+    },
+    "energy": -102.7427606,
+    "energy_per_atom": -8.561896716666666,
+    "entry_id": "mp-2454-GGA",
+    "mp_id": "mp-2454"
+  },
+  {
+    "chemsys": "Gd-Zn",
+    "composition": {
+      "GdZn": 2
+    },
+    "energy": -16.06595116,
+    "energy_per_atom": -8.03297558,
+    "entry_id": "mp-2497-GGA",
+    "mp_id": "mp-2497"
+  },
+  {
+    "chemsys": "Y-Zn",
+    "composition": {
+      "YZn": 2
+    },
+    "energy": -8.4597724,
+    "energy_per_atom": -4.2298862,
+    "entry_id": "mp-2516-GGA",
+    "mp_id": "mp-2516"
+  },
+  {
+    "chemsys": "Co-Y",
+    "composition": {
+      "YCo3": 12
+    },
+    "energy": -84.52799994,
+    "energy_per_atom": -7.043999995,
+    "entry_id": "mp-2588-GGA",
+    "mp_id": "mp-2588"
+  },
+  {
+    "chemsys": "Zn",
+    "composition": {
+      "Zn": 1
+    },
+    "energy": -1.25453823,
+    "energy_per_atom": -1.25453823,
+    "entry_id": "mp-2646972-GGA",
+    "mp_id": "mp-2646972"
+  },
+  {
+    "chemsys": "Mn",
+    "composition": {
+      "Mn": 2
+    },
+    "energy": -18.21876588,
+    "energy_per_atom": -9.10938294,
+    "entry_id": "mp-2647025-GGA",
+    "mp_id": "mp-2647025"
+  },
+  {
+    "chemsys": "Co",
+    "composition": {
+      "Co": 1
+    },
+    "energy": -7.01875206,
+    "energy_per_atom": -7.01875206,
+    "entry_id": "mp-2647057-GGA",
+    "mp_id": "mp-2647057"
+  },
+  {
+    "chemsys": "V",
+    "composition": {
+      "V": 2
+    },
+    "energy": -17.6602427,
+    "energy_per_atom": -8.83012135,
+    "entry_id": "mp-2647074-GGA",
+    "mp_id": "mp-2647074"
+  },
+  {
+    "chemsys": "Zn",
+    "composition": {
+      "Zn": 1
+    },
+    "energy": -1.18808118,
+    "energy_per_atom": -1.18808118,
+    "entry_id": "mp-2647117-GGA",
+    "mp_id": "mp-2647117"
+  },
+  {
+    "chemsys": "Cu-Y",
+    "composition": {
+      "YCu2": 6
+    },
+    "energy": -30.8961229,
+    "energy_per_atom": -5.149353816666667,
+    "entry_id": "mp-2698-GGA",
+    "mp_id": "mp-2698"
+  },
+  {
+    "chemsys": "Ni-Ti",
+    "composition": {
+      "TiNi": 18
+    },
+    "energy": -129.76030738,
+    "energy_per_atom": -7.208905965555555,
+    "entry_id": "mp-2716-GGA",
+    "mp_id": "mp-2716"
+  },
+  {
+    "chemsys": "Cu-Y",
+    "composition": {
+      "YCu5": 6
+    },
+    "energy": -28.10399502,
+    "energy_per_atom": -4.68399917,
+    "entry_id": "mp-2797-GGA",
+    "mp_id": "mp-2797"
+  },
+  {
+    "chemsys": "Co-Y",
+    "composition": {
+      "YCo5": 6
+    },
+    "energy": -42.63508071,
+    "energy_per_atom": -7.105846785,
+    "entry_id": "mp-2827-GGA",
+    "mp_id": "mp-2827"
+  },
+  {
+    "chemsys": "Cu",
+    "composition": {
+      "Cu": 1
+    },
+    "energy": -4.09920667,
+    "energy_per_atom": -4.09920667,
+    "entry_id": "mp-30-GGA",
+    "mp_id": "mp-30"
+  },
+  {
+    "chemsys": "Fe-Ti",
+    "composition": {
+      "TiFe": 2
+    },
+    "energy": -17.20717353,
+    "energy_per_atom": -8.603586765,
+    "entry_id": "mp-305-GGA",
+    "mp_id": "mp-305"
+  },
+  {
+    "chemsys": "Co-Ti",
+    "composition": {
+      "Ti2Co": 6
+    },
+    "energy": -43.16025008,
+    "energy_per_atom": -7.193375013333333,
+    "entry_id": "mp-30566-GGA",
+    "mp_id": "mp-30566"
+  },
+  {
+    "chemsys": "Co-Zn",
+    "composition": {
+      "Zn13Co": 14
+    },
+    "energy": -24.28446817,
+    "energy_per_atom": -1.7346048692857143,
+    "entry_id": "mp-30568-GGA",
+    "mp_id": "mp-30568"
+  },
+  {
+    "chemsys": "Fe-Y",
+    "composition": {
+      "Y6Fe23": 29
+    },
+    "energy": -234.81542365,
+    "energy_per_atom": -8.097083574137931,
+    "entry_id": "mp-30641-GGA",
+    "mp_id": "mp-30641"
+  },
+  {
+    "chemsys": "Y-Zn",
+    "composition": {
+      "YZn3": 16
+    },
+    "energy": -47.00754748,
+    "energy_per_atom": -2.9379717175,
+    "entry_id": "mp-30884-GGA",
+    "mp_id": "mp-30884"
+  },
+  {
+    "chemsys": "Y-Zn",
+    "composition": {
+      "YZn5": 6
+    },
+    "energy": -14.53925456,
+    "energy_per_atom": -2.4232090933333335,
+    "entry_id": "mp-30885-GGA",
+    "mp_id": "mp-30885"
+  },
+  {
+    "chemsys": "Y-Zn",
+    "composition": {
+      "YZn12": 13
+    },
+    "energy": -23.99917321,
+    "energy_per_atom": -1.8460902469230769,
+    "entry_id": "mp-30886-GGA",
+    "mp_id": "mp-30886"
+  },
+  {
+    "chemsys": "Mn",
+    "composition": {
+      "Mn": 29
+    },
+    "energy": -265.69844347,
+    "energy_per_atom": -9.162015292068965,
+    "entry_id": "mp-35-GGA",
+    "mp_id": "mp-35"
+  },
+  {
+    "chemsys": "Ti",
+    "composition": {
+      "Ti": 2
+    },
+    "energy": -15.78211434,
+    "energy_per_atom": -7.89105717,
+    "entry_id": "mp-46-GGA",
+    "mp_id": "mp-46"
+  },
+  {
+    "chemsys": "Co",
+    "composition": {
+      "Co": 2
+    },
+    "energy": -14.21663559,
+    "energy_per_atom": -7.108317795,
+    "entry_id": "mp-54-GGA",
+    "mp_id": "mp-54"
+  },
+  {
+    "chemsys": "Gd-Zn",
+    "composition": {
+      "Gd2Zn17": 19
+    },
+    "energy": -54.33437569,
+    "energy_per_atom": -2.8597039836842106,
+    "entry_id": "mp-542437-GGA",
+    "mp_id": "mp-542437"
+  },
+  {
+    "chemsys": "Co-V",
+    "composition": {
+      "VCo3": 24
+    },
+    "energy": -186.59279009,
+    "energy_per_atom": -7.774699587083333,
+    "entry_id": "mp-542614-GGA",
+    "mp_id": "mp-542614"
+  },
+  {
+    "chemsys": "Gd-Ni",
+    "composition": {
+      "GdNi": 4
+    },
+    "energy": -41.35347358,
+    "energy_per_atom": -10.338368395,
+    "entry_id": "mp-542632-GGA",
+    "mp_id": "mp-542632"
+  },
+  {
+    "chemsys": "Co-Gd",
+    "composition": {
+      "GdCo2": 6
+    },
+    "energy": -47.3934532,
+    "energy_per_atom": -7.898908866666667,
+    "entry_id": "mp-542633-GGA",
+    "mp_id": "mp-542633"
+  },
+  {
+    "chemsys": "Mn",
+    "composition": {
+      "Mn": 20
+    },
+    "energy": -182.18136604,
+    "energy_per_atom": -9.109068302,
+    "entry_id": "mp-542909-GGA",
+    "mp_id": "mp-542909"
+  },
+  {
+    "chemsys": "Gd-Ni",
+    "composition": {
+      "GdNi2": 6
+    },
+    "energy": -53.75619573,
+    "energy_per_atom": -8.959365955,
+    "entry_id": "mp-543019-GGA",
+    "mp_id": "mp-543019"
+  },
+  {
+    "chemsys": "Mn-Y",
+    "composition": {
+      "YMn2": 6
+    },
+    "energy": -48.61648896,
+    "energy_per_atom": -8.102748159999999,
+    "entry_id": "mp-558-GGA",
+    "mp_id": "mp-558"
+  },
+  {
+    "chemsys": "Ni-Ti",
+    "composition": {
+      "Ti3Ni4": 14
+    },
+    "energy": -99.3960194,
+    "energy_per_atom": -7.099715671428571,
+    "entry_id": "mp-567653-GGA",
+    "mp_id": "mp-567653"
+  },
+  {
+    "chemsys": "Fe",
+    "composition": {
+      "Fe": 6
+    },
+    "energy": -46.2516543,
+    "energy_per_atom": -7.70860905,
+    "entry_id": "mp-568345-GGA",
+    "mp_id": "mp-568345"
+  },
+  {
+    "chemsys": "Ni-Y",
+    "composition": {
+      "YNi3": 12
+    },
+    "energy": -76.16184842,
+    "energy_per_atom": -6.346820701666666,
+    "entry_id": "mp-569196-GGA",
+    "mp_id": "mp-569196"
+  },
+  {
+    "chemsys": "Gd",
+    "composition": {
+      "Gd": 3
+    },
+    "energy": -42.16745012,
+    "energy_per_atom": -14.055816706666667,
+    "entry_id": "mp-570087-GGA",
+    "mp_id": "mp-570087"
+  },
+  {
+    "chemsys": "Co-Y",
+    "composition": {
+      "Y2Co17": 38
+    },
+    "energy": -271.05674031,
+    "energy_per_atom": -7.133072113421053,
+    "entry_id": "mp-570718-GGA",
+    "mp_id": "mp-570718"
+  },
+  {
+    "chemsys": "Ni-Ti",
+    "composition": {
+      "TiNi": 2
+    },
+    "energy": -14.37035,
+    "energy_per_atom": -7.185175,
+    "entry_id": "mp-571-GGA",
+    "mp_id": "mp-571"
+  },
+  {
+    "chemsys": "Co-Y",
+    "composition": {
+      "Y8Co5": 52
+    },
+    "energy": -358.01233676,
+    "energy_per_atom": -6.884852629999999,
+    "entry_id": "mp-573425-GGA",
+    "mp_id": "mp-573425"
+  },
+  {
+    "chemsys": "Ni-Y",
+    "composition": {
+      "Y2Ni7": 18
+    },
+    "energy": -113.65011957,
+    "energy_per_atom": -6.313895531666667,
+    "entry_id": "mp-574339-GGA",
+    "mp_id": "mp-574339"
+  },
+  {
+    "chemsys": "Gd-Ni",
+    "composition": {
+      "Gd2Ni17": 38
+    },
+    "energy": -237.49348854,
+    "energy_per_atom": -6.249828645789473,
+    "entry_id": "mp-580102-GGA",
+    "mp_id": "mp-580102"
+  },
+  {
+    "chemsys": "Fe-Gd",
+    "composition": {
+      "Gd2Fe17": 19
+    },
+    "energy": -172.24485521999998,
+    "energy_per_atom": -9.065518695789473,
+    "entry_id": "mp-581734-GGA",
+    "mp_id": "mp-581734"
+  },
+  {
+    "chemsys": "Ni-Y",
+    "composition": {
+      "Y3Ni2": 80
+    },
+    "energy": -523.83197582,
+    "energy_per_atom": -6.54789969775,
+    "entry_id": "mp-582134-GGA",
+    "mp_id": "mp-582134"
+  },
+  {
+    "chemsys": "Ni-Ti",
+    "composition": {
+      "TiNi": 18
+    },
+    "energy": -129.79743504,
+    "energy_per_atom": -7.210968613333334,
+    "entry_id": "mp-597-GGA",
+    "mp_id": "mp-597"
+  },
+  {
+    "chemsys": "Ni-Ti",
+    "composition": {
+      "TiNi": 4
+    },
+    "energy": -28.8650608,
+    "energy_per_atom": -7.2162652,
+    "entry_id": "mp-603347-GGA",
+    "mp_id": "mp-603347"
+  },
+  {
+    "chemsys": "Co-Ti",
+    "composition": {
+      "TiCo3": 4
+    },
+    "energy": -30.26725722,
+    "energy_per_atom": -7.566814305,
+    "entry_id": "mp-608-GGA",
+    "mp_id": "mp-608"
+  },
+  {
+    "chemsys": "Cu-Gd",
+    "composition": {
+      "GdCu": 2
+    },
+    "energy": -18.59790596,
+    "energy_per_atom": -9.29895298,
+    "entry_id": "mp-614455-GGA",
+    "mp_id": "mp-614455"
+  },
+  {
+    "chemsys": "Gd",
+    "composition": {
+      "Gd": 1
+    },
+    "energy": -14.02774154,
+    "energy_per_atom": -14.02774154,
+    "entry_id": "mp-614502-GGA",
+    "mp_id": "mp-614502"
+  },
+  {
+    "chemsys": "Co-Y",
+    "composition": {
+      "Y3Co2": 20
+    },
+    "energy": -137.76762984,
+    "energy_per_atom": -6.888381492000001,
+    "entry_id": "mp-616512-GGA",
+    "mp_id": "mp-616512"
+  },
+  {
+    "chemsys": "Cu-Gd",
+    "composition": {
+      "GdCu5": 6
+    },
+    "energy": -35.60466128,
+    "energy_per_atom": -5.934110213333334,
+    "entry_id": "mp-636253-GGA",
+    "mp_id": "mp-636253"
+  },
+  {
+    "chemsys": "Gd-Mn",
+    "composition": {
+      "GdMn12": 13
+    },
+    "energy": -123.74163490000001,
+    "energy_per_atom": -9.5185873,
+    "entry_id": "mp-639892-GGA",
+    "mp_id": "mp-639892"
+  },
+  {
+    "chemsys": "Ni-Ti",
+    "composition": {
+      "TiNi": 12
+    },
+    "energy": -86.57641315,
+    "energy_per_atom": -7.214701095833333,
+    "entry_id": "mp-640189-GGA",
+    "mp_id": "mp-640189"
+  },
+  {
+    "chemsys": "Co",
+    "composition": {
+      "Co": 46
+    },
+    "energy": -321.57014859,
+    "energy_per_atom": -6.990655404130434,
+    "entry_id": "mp-669382-GGA",
+    "mp_id": "mp-669382"
+  },
+  {
+    "chemsys": "Gd-Ni",
+    "composition": {
+      "Gd2Ni7": 18
+    },
+    "energy": -143.88382354,
+    "energy_per_atom": -7.993545752222222,
+    "entry_id": "mp-669713-GGA",
+    "mp_id": "mp-669713"
+  },
+  {
+    "chemsys": "Co-V",
+    "composition": {
+      "VCo3": 24
+    },
+    "energy": -158.6025262,
+    "energy_per_atom": -6.608438591666666,
+    "entry_id": "mp-680599-GGA",
+    "mp_id": "mp-680599"
+  },
+  {
+    "chemsys": "Co-Ti",
+    "composition": {
+      "TiCo2": 6
+    },
+    "energy": -46.03850251,
+    "energy_per_atom": -7.673083751666667,
+    "entry_id": "mp-695-GGA",
+    "mp_id": "mp-695"
+  },
+  {
+    "chemsys": "Ti",
+    "composition": {
+      "Ti": 1
+    },
+    "energy": -7.8335295,
+    "energy_per_atom": -7.8335295,
+    "entry_id": "mp-6985-GGA",
+    "mp_id": "mp-6985"
+  },
+  {
+    "chemsys": "Cu-Y",
+    "composition": {
+      "YCu": 2
+    },
+    "energy": -11.05553214,
+    "energy_per_atom": -5.52776607,
+    "entry_id": "mp-712-GGA",
+    "mp_id": "mp-712"
+  },
+  {
+    "chemsys": "Ti",
+    "composition": {
+      "Ti": 3
+    },
+    "energy": -23.68647605,
+    "energy_per_atom": -7.895492016666666,
+    "entry_id": "mp-72-GGA",
+    "mp_id": "mp-72"
+  },
+  {
+    "chemsys": "Ni-V",
+    "composition": {
+      "V3Ni": 8
+    },
+    "energy": -67.31355729,
+    "energy_per_atom": -8.41419466125,
+    "entry_id": "mp-7226-GGA",
+    "mp_id": "mp-7226"
+  },
+  {
+    "chemsys": "Ti",
+    "composition": {
+      "Ti": 1
+    },
+    "energy": -7.78345591,
+    "energy_per_atom": -7.78345591,
+    "entry_id": "mp-73-GGA",
+    "mp_id": "mp-73"
+  },
+  {
+    "chemsys": "Zn",
+    "composition": {
+      "Zn": 2
+    },
+    "energy": -2.5194872200000002,
+    "energy_per_atom": -1.2597436100000001,
+    "entry_id": "mp-79-GGA",
+    "mp_id": "mp-79"
+  },
+  {
+    "chemsys": "Co-Y",
+    "composition": {
+      "YCo": 4
+    },
+    "energy": -27.92426846,
+    "energy_per_atom": -6.981067115,
+    "entry_id": "mp-8053-GGA",
+    "mp_id": "mp-8053"
+  },
+  {
+    "chemsys": "Co-Ti",
+    "composition": {
+      "TiCo": 2
+    },
+    "energy": -15.80484994,
+    "energy_per_atom": -7.90242497,
+    "entry_id": "mp-823-GGA",
+    "mp_id": "mp-823"
+  },
+  {
+    "chemsys": "V",
+    "composition": {
+      "V": 1
+    },
+    "energy": -8.83676567,
+    "energy_per_atom": -8.83676567,
+    "entry_id": "mp-8632-GGA",
+    "mp_id": "mp-8632"
+  },
+  {
+    "chemsys": "Cr",
+    "composition": {
+      "Cr": 1
+    },
+    "energy": -9.25052113,
+    "energy_per_atom": -9.25052113,
+    "entry_id": "mp-8633-GGA",
+    "mp_id": "mp-8633"
+  },
+  {
+    "chemsys": "Mn",
+    "composition": {
+      "Mn": 1
+    },
+    "energy": -9.078917239999999,
+    "energy_per_atom": -9.078917239999999,
+    "entry_id": "mp-8634-GGA",
+    "mp_id": "mp-8634"
+  },
+  {
+    "chemsys": "Co-Y",
+    "composition": {
+      "YCo": 4
+    },
+    "energy": -27.93837983,
+    "energy_per_atom": -6.9845949575,
+    "entry_id": "mp-865373-GGA",
+    "mp_id": "mp-865373"
+  },
+  {
+    "chemsys": "Fe-V",
+    "composition": {
+      "VFe3": 4
+    },
+    "energy": -35.00719661,
+    "energy_per_atom": -8.7517991525,
+    "entry_id": "mp-866134-GGA",
+    "mp_id": "mp-866134"
+  },
+  {
+    "chemsys": "Cr",
+    "composition": {
+      "Cr": 2
+    },
+    "energy": -18.46541473,
+    "energy_per_atom": -9.232707365,
+    "entry_id": "mp-89-GGA",
+    "mp_id": "mp-89"
+  },
+  {
+    "chemsys": "Y",
+    "composition": {
+      "Y": 1
+    },
+    "energy": -6.44250777,
+    "energy_per_atom": -6.44250777,
+    "entry_id": "mp-9-GGA",
+    "mp_id": "mp-9"
+  },
+  {
+    "chemsys": "Cr",
+    "composition": {
+      "Cr": 2
+    },
+    "energy": -19.30609494,
+    "energy_per_atom": -9.65304747,
+    "entry_id": "mp-90-GGA",
+    "mp_id": "mp-90"
+  },
+  {
+    "chemsys": "Co-Zn",
+    "composition": {
+      "ZnCo3": 4
+    },
+    "energy": -22.39841078,
+    "energy_per_atom": -5.599602695,
+    "entry_id": "mp-971744-GGA",
+    "mp_id": "mp-971744"
+  },
+  {
+    "chemsys": "Co-Zn",
+    "composition": {
+      "Zn3Co": 4
+    },
+    "energy": -11.03507545,
+    "energy_per_atom": -2.7587688625,
+    "entry_id": "mp-971948-GGA",
+    "mp_id": "mp-971948"
+  },
+  {
+    "chemsys": "Gd-Mn",
+    "composition": {
+      "GdMn3": 8
+    },
+    "energy": -67.82011073,
+    "energy_per_atom": -8.47751384125,
+    "entry_id": "mp-976591-GGA",
+    "mp_id": "mp-976591"
+  },
+  {
+    "chemsys": "Ni-Ti",
+    "composition": {
+      "Ti3Ni": 4
+    },
+    "energy": -29.78245728,
+    "energy_per_atom": -7.44561432,
+    "entry_id": "mp-981209-GGA",
+    "mp_id": "mp-981209"
+  },
+  {
+    "chemsys": "Co-Zn",
+    "composition": {
+      "Zn3Co": 4
+    },
+    "energy": -11.10701811,
+    "energy_per_atom": -2.7767545275,
+    "entry_id": "mp-981215-GGA",
+    "mp_id": "mp-981215"
+  },
+  {
+    "chemsys": "Fe-Mn-Y",
+    "composition": {
+      "Y(Mn2Fe)4": 13
+    },
+    "energy": -112.52410833,
+    "energy_per_atom": -8.655700640769231,
+    "entry_id": "mp-982188-GGA",
+    "mp_id": "mp-982188"
+  },
+  {
+    "chemsys": "Cu",
+    "composition": {
+      "Cu": 4
+    },
+    "energy": -16.37376234,
+    "energy_per_atom": -4.093440585,
+    "entry_id": "mp-989695-GGA",
+    "mp_id": "mp-989695"
+  },
+  {
+    "chemsys": "Cu",
+    "composition": {
+      "Cu": 2
+    },
+    "energy": -8.18342969,
+    "energy_per_atom": -4.091714845,
+    "entry_id": "mp-989782-GGA",
+    "mp_id": "mp-989782"
+  },
+  {
+    "chemsys": "Cu",
+    "composition": {
+      "Cu": 1
+    },
+    "energy": -4.06256665,
+    "energy_per_atom": -4.06256665,
+    "entry_id": "mp-998890-GGA",
+    "mp_id": "mp-998890"
+  },
+  {
+    "chemsys": "Ni-Ti",
+    "composition": {
+      "TiNi": 2
+    },
+    "energy": -14.33405681,
+    "energy_per_atom": -7.167028405,
+    "entry_id": "mp-998945-GGA",
+    "mp_id": "mp-998945"
+  },
+  {
+    "chemsys": "Ti-Y",
+    "composition": {
+      "YTi": 2
+    },
+    "energy": -13.63301247,
+    "energy_per_atom": -6.816506235,
+    "entry_id": "mp-999484-GGA",
+    "mp_id": "mp-999484"
+  },
+  {
+    "chemsys": "Fe-Mn",
+    "composition": {
+      "MnFe3": 4
+    },
+    "energy": -34.36719547,
+    "energy_per_atom": -8.5917988675,
+    "entry_id": "mp-999542-GGA",
+    "mp_id": "mp-999542"
+  },
+  {
+    "chemsys": "Co-Mn",
+    "composition": {
+      "MnCo3": 4
+    },
+    "energy": -30.15031684,
+    "energy_per_atom": -7.53757921,
+    "entry_id": "mp-999543-GGA",
+    "mp_id": "mp-999543"
+  },
+  {
+    "chemsys": "Fe-Mn",
+    "composition": {
+      "Mn3Fe": 4
+    },
+    "energy": -35.48031848,
+    "energy_per_atom": -8.87007962,
+    "entry_id": "mp-999545-GGA",
+    "mp_id": "mp-999545"
+  }
+]

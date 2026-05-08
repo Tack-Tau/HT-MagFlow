@@ -1,0 +1,2048 @@
+[
+  {
+    "formula": "Y1Fe3",
+    "composition": {
+      "Y": 1,
+      "Fe": 3
+    },
+    "total_atoms": 4,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.75
+  },
+  {
+    "formula": "Y1Fe4",
+    "composition": {
+      "Y": 1,
+      "Fe": 4
+    },
+    "total_atoms": 5,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8
+  },
+  {
+    "formula": "Y1Fe5",
+    "composition": {
+      "Y": 1,
+      "Fe": 5
+    },
+    "total_atoms": 6,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8333333333333334
+  },
+  {
+    "formula": "Y1Fe6",
+    "composition": {
+      "Y": 1,
+      "Fe": 6
+    },
+    "total_atoms": 7,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8571428571428571
+  },
+  {
+    "formula": "Y1Fe7",
+    "composition": {
+      "Y": 1,
+      "Fe": 7
+    },
+    "total_atoms": 8,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.875
+  },
+  {
+    "formula": "Y1Fe8",
+    "composition": {
+      "Y": 1,
+      "Fe": 8
+    },
+    "total_atoms": 9,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8888888888888888
+  },
+  {
+    "formula": "Y1Fe9",
+    "composition": {
+      "Y": 1,
+      "Fe": 9
+    },
+    "total_atoms": 10,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.9
+  },
+  {
+    "formula": "Y1Fe10",
+    "composition": {
+      "Y": 1,
+      "Fe": 10
+    },
+    "total_atoms": 11,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.9090909090909091
+  },
+  {
+    "formula": "Y1Fe11",
+    "composition": {
+      "Y": 1,
+      "Fe": 11
+    },
+    "total_atoms": 12,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.9166666666666666
+  },
+  {
+    "formula": "Y1Fe12",
+    "composition": {
+      "Y": 1,
+      "Fe": 12
+    },
+    "total_atoms": 13,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.9230769230769231
+  },
+  {
+    "formula": "Y1Fe13",
+    "composition": {
+      "Y": 1,
+      "Fe": 13
+    },
+    "total_atoms": 14,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.9285714285714286
+  },
+  {
+    "formula": "Y1Fe14",
+    "composition": {
+      "Y": 1,
+      "Fe": 14
+    },
+    "total_atoms": 15,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.9333333333333333
+  },
+  {
+    "formula": "Y1Fe15",
+    "composition": {
+      "Y": 1,
+      "Fe": 15
+    },
+    "total_atoms": 16,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.9375
+  },
+  {
+    "formula": "Y1Fe16",
+    "composition": {
+      "Y": 1,
+      "Fe": 16
+    },
+    "total_atoms": 17,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.9411764705882353
+  },
+  {
+    "formula": "Y1Fe17",
+    "composition": {
+      "Y": 1,
+      "Fe": 17
+    },
+    "total_atoms": 18,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.9444444444444444
+  },
+  {
+    "formula": "Y1Fe18",
+    "composition": {
+      "Y": 1,
+      "Fe": 18
+    },
+    "total_atoms": 19,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.9473684210526315
+  },
+  {
+    "formula": "Y1Fe19",
+    "composition": {
+      "Y": 1,
+      "Fe": 19
+    },
+    "total_atoms": 20,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.95
+  },
+  {
+    "formula": "Y2Fe7",
+    "composition": {
+      "Y": 2,
+      "Fe": 7
+    },
+    "total_atoms": 9,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.7777777777777778
+  },
+  {
+    "formula": "Y2Fe9",
+    "composition": {
+      "Y": 2,
+      "Fe": 9
+    },
+    "total_atoms": 11,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8181818181818182
+  },
+  {
+    "formula": "Y2Fe11",
+    "composition": {
+      "Y": 2,
+      "Fe": 11
+    },
+    "total_atoms": 13,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8461538461538461
+  },
+  {
+    "formula": "Y2Fe13",
+    "composition": {
+      "Y": 2,
+      "Fe": 13
+    },
+    "total_atoms": 15,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8666666666666667
+  },
+  {
+    "formula": "Y2Fe15",
+    "composition": {
+      "Y": 2,
+      "Fe": 15
+    },
+    "total_atoms": 17,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8823529411764706
+  },
+  {
+    "formula": "Y2Fe17",
+    "composition": {
+      "Y": 2,
+      "Fe": 17
+    },
+    "total_atoms": 19,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8947368421052632
+  },
+  {
+    "formula": "Y3Fe10",
+    "composition": {
+      "Y": 3,
+      "Fe": 10
+    },
+    "total_atoms": 13,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.7692307692307693
+  },
+  {
+    "formula": "Y3Fe11",
+    "composition": {
+      "Y": 3,
+      "Fe": 11
+    },
+    "total_atoms": 14,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.7857142857142857
+  },
+  {
+    "formula": "Y3Fe13",
+    "composition": {
+      "Y": 3,
+      "Fe": 13
+    },
+    "total_atoms": 16,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8125
+  },
+  {
+    "formula": "Y3Fe14",
+    "composition": {
+      "Y": 3,
+      "Fe": 14
+    },
+    "total_atoms": 17,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8235294117647058
+  },
+  {
+    "formula": "Y3Fe16",
+    "composition": {
+      "Y": 3,
+      "Fe": 16
+    },
+    "total_atoms": 19,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8421052631578947
+  },
+  {
+    "formula": "Y3Fe17",
+    "composition": {
+      "Y": 3,
+      "Fe": 17
+    },
+    "total_atoms": 20,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.85
+  },
+  {
+    "formula": "Y4Fe13",
+    "composition": {
+      "Y": 4,
+      "Fe": 13
+    },
+    "total_atoms": 17,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.7647058823529411
+  },
+  {
+    "formula": "Y4Fe15",
+    "composition": {
+      "Y": 4,
+      "Fe": 15
+    },
+    "total_atoms": 19,
+    "rare_earth": "Y",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.7894736842105263
+  },
+  {
+    "formula": "Y1Co3",
+    "composition": {
+      "Y": 1,
+      "Co": 3
+    },
+    "total_atoms": 4,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.75
+  },
+  {
+    "formula": "Y1Co4",
+    "composition": {
+      "Y": 1,
+      "Co": 4
+    },
+    "total_atoms": 5,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8
+  },
+  {
+    "formula": "Y1Co5",
+    "composition": {
+      "Y": 1,
+      "Co": 5
+    },
+    "total_atoms": 6,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8333333333333334
+  },
+  {
+    "formula": "Y1Co6",
+    "composition": {
+      "Y": 1,
+      "Co": 6
+    },
+    "total_atoms": 7,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8571428571428571
+  },
+  {
+    "formula": "Y1Co7",
+    "composition": {
+      "Y": 1,
+      "Co": 7
+    },
+    "total_atoms": 8,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.875
+  },
+  {
+    "formula": "Y1Co8",
+    "composition": {
+      "Y": 1,
+      "Co": 8
+    },
+    "total_atoms": 9,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8888888888888888
+  },
+  {
+    "formula": "Y1Co9",
+    "composition": {
+      "Y": 1,
+      "Co": 9
+    },
+    "total_atoms": 10,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.9
+  },
+  {
+    "formula": "Y1Co10",
+    "composition": {
+      "Y": 1,
+      "Co": 10
+    },
+    "total_atoms": 11,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.9090909090909091
+  },
+  {
+    "formula": "Y1Co11",
+    "composition": {
+      "Y": 1,
+      "Co": 11
+    },
+    "total_atoms": 12,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.9166666666666666
+  },
+  {
+    "formula": "Y1Co12",
+    "composition": {
+      "Y": 1,
+      "Co": 12
+    },
+    "total_atoms": 13,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.9230769230769231
+  },
+  {
+    "formula": "Y1Co13",
+    "composition": {
+      "Y": 1,
+      "Co": 13
+    },
+    "total_atoms": 14,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.9285714285714286
+  },
+  {
+    "formula": "Y1Co14",
+    "composition": {
+      "Y": 1,
+      "Co": 14
+    },
+    "total_atoms": 15,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.9333333333333333
+  },
+  {
+    "formula": "Y1Co15",
+    "composition": {
+      "Y": 1,
+      "Co": 15
+    },
+    "total_atoms": 16,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.9375
+  },
+  {
+    "formula": "Y1Co16",
+    "composition": {
+      "Y": 1,
+      "Co": 16
+    },
+    "total_atoms": 17,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.9411764705882353
+  },
+  {
+    "formula": "Y1Co17",
+    "composition": {
+      "Y": 1,
+      "Co": 17
+    },
+    "total_atoms": 18,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.9444444444444444
+  },
+  {
+    "formula": "Y1Co18",
+    "composition": {
+      "Y": 1,
+      "Co": 18
+    },
+    "total_atoms": 19,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.9473684210526315
+  },
+  {
+    "formula": "Y1Co19",
+    "composition": {
+      "Y": 1,
+      "Co": 19
+    },
+    "total_atoms": 20,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.95
+  },
+  {
+    "formula": "Y2Co7",
+    "composition": {
+      "Y": 2,
+      "Co": 7
+    },
+    "total_atoms": 9,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.7777777777777778
+  },
+  {
+    "formula": "Y2Co9",
+    "composition": {
+      "Y": 2,
+      "Co": 9
+    },
+    "total_atoms": 11,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8181818181818182
+  },
+  {
+    "formula": "Y2Co11",
+    "composition": {
+      "Y": 2,
+      "Co": 11
+    },
+    "total_atoms": 13,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8461538461538461
+  },
+  {
+    "formula": "Y2Co13",
+    "composition": {
+      "Y": 2,
+      "Co": 13
+    },
+    "total_atoms": 15,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8666666666666667
+  },
+  {
+    "formula": "Y2Co15",
+    "composition": {
+      "Y": 2,
+      "Co": 15
+    },
+    "total_atoms": 17,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8823529411764706
+  },
+  {
+    "formula": "Y2Co17",
+    "composition": {
+      "Y": 2,
+      "Co": 17
+    },
+    "total_atoms": 19,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8947368421052632
+  },
+  {
+    "formula": "Y3Co10",
+    "composition": {
+      "Y": 3,
+      "Co": 10
+    },
+    "total_atoms": 13,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.7692307692307693
+  },
+  {
+    "formula": "Y3Co11",
+    "composition": {
+      "Y": 3,
+      "Co": 11
+    },
+    "total_atoms": 14,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.7857142857142857
+  },
+  {
+    "formula": "Y3Co13",
+    "composition": {
+      "Y": 3,
+      "Co": 13
+    },
+    "total_atoms": 16,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8125
+  },
+  {
+    "formula": "Y3Co14",
+    "composition": {
+      "Y": 3,
+      "Co": 14
+    },
+    "total_atoms": 17,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8235294117647058
+  },
+  {
+    "formula": "Y3Co16",
+    "composition": {
+      "Y": 3,
+      "Co": 16
+    },
+    "total_atoms": 19,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8421052631578947
+  },
+  {
+    "formula": "Y3Co17",
+    "composition": {
+      "Y": 3,
+      "Co": 17
+    },
+    "total_atoms": 20,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.85
+  },
+  {
+    "formula": "Y4Co13",
+    "composition": {
+      "Y": 4,
+      "Co": 13
+    },
+    "total_atoms": 17,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.7647058823529411
+  },
+  {
+    "formula": "Y4Co15",
+    "composition": {
+      "Y": 4,
+      "Co": 15
+    },
+    "total_atoms": 19,
+    "rare_earth": "Y",
+    "transition_metal": "Co",
+    "tm_ratio": 0.7894736842105263
+  },
+  {
+    "formula": "Y1Ni3",
+    "composition": {
+      "Y": 1,
+      "Ni": 3
+    },
+    "total_atoms": 4,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.75
+  },
+  {
+    "formula": "Y1Ni4",
+    "composition": {
+      "Y": 1,
+      "Ni": 4
+    },
+    "total_atoms": 5,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8
+  },
+  {
+    "formula": "Y1Ni5",
+    "composition": {
+      "Y": 1,
+      "Ni": 5
+    },
+    "total_atoms": 6,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8333333333333334
+  },
+  {
+    "formula": "Y1Ni6",
+    "composition": {
+      "Y": 1,
+      "Ni": 6
+    },
+    "total_atoms": 7,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8571428571428571
+  },
+  {
+    "formula": "Y1Ni7",
+    "composition": {
+      "Y": 1,
+      "Ni": 7
+    },
+    "total_atoms": 8,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.875
+  },
+  {
+    "formula": "Y1Ni8",
+    "composition": {
+      "Y": 1,
+      "Ni": 8
+    },
+    "total_atoms": 9,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8888888888888888
+  },
+  {
+    "formula": "Y1Ni9",
+    "composition": {
+      "Y": 1,
+      "Ni": 9
+    },
+    "total_atoms": 10,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.9
+  },
+  {
+    "formula": "Y1Ni10",
+    "composition": {
+      "Y": 1,
+      "Ni": 10
+    },
+    "total_atoms": 11,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.9090909090909091
+  },
+  {
+    "formula": "Y1Ni11",
+    "composition": {
+      "Y": 1,
+      "Ni": 11
+    },
+    "total_atoms": 12,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.9166666666666666
+  },
+  {
+    "formula": "Y1Ni12",
+    "composition": {
+      "Y": 1,
+      "Ni": 12
+    },
+    "total_atoms": 13,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.9230769230769231
+  },
+  {
+    "formula": "Y1Ni13",
+    "composition": {
+      "Y": 1,
+      "Ni": 13
+    },
+    "total_atoms": 14,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.9285714285714286
+  },
+  {
+    "formula": "Y1Ni14",
+    "composition": {
+      "Y": 1,
+      "Ni": 14
+    },
+    "total_atoms": 15,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.9333333333333333
+  },
+  {
+    "formula": "Y1Ni15",
+    "composition": {
+      "Y": 1,
+      "Ni": 15
+    },
+    "total_atoms": 16,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.9375
+  },
+  {
+    "formula": "Y1Ni16",
+    "composition": {
+      "Y": 1,
+      "Ni": 16
+    },
+    "total_atoms": 17,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.9411764705882353
+  },
+  {
+    "formula": "Y1Ni17",
+    "composition": {
+      "Y": 1,
+      "Ni": 17
+    },
+    "total_atoms": 18,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.9444444444444444
+  },
+  {
+    "formula": "Y1Ni18",
+    "composition": {
+      "Y": 1,
+      "Ni": 18
+    },
+    "total_atoms": 19,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.9473684210526315
+  },
+  {
+    "formula": "Y1Ni19",
+    "composition": {
+      "Y": 1,
+      "Ni": 19
+    },
+    "total_atoms": 20,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.95
+  },
+  {
+    "formula": "Y2Ni7",
+    "composition": {
+      "Y": 2,
+      "Ni": 7
+    },
+    "total_atoms": 9,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.7777777777777778
+  },
+  {
+    "formula": "Y2Ni9",
+    "composition": {
+      "Y": 2,
+      "Ni": 9
+    },
+    "total_atoms": 11,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8181818181818182
+  },
+  {
+    "formula": "Y2Ni11",
+    "composition": {
+      "Y": 2,
+      "Ni": 11
+    },
+    "total_atoms": 13,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8461538461538461
+  },
+  {
+    "formula": "Y2Ni13",
+    "composition": {
+      "Y": 2,
+      "Ni": 13
+    },
+    "total_atoms": 15,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8666666666666667
+  },
+  {
+    "formula": "Y2Ni15",
+    "composition": {
+      "Y": 2,
+      "Ni": 15
+    },
+    "total_atoms": 17,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8823529411764706
+  },
+  {
+    "formula": "Y2Ni17",
+    "composition": {
+      "Y": 2,
+      "Ni": 17
+    },
+    "total_atoms": 19,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8947368421052632
+  },
+  {
+    "formula": "Y3Ni10",
+    "composition": {
+      "Y": 3,
+      "Ni": 10
+    },
+    "total_atoms": 13,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.7692307692307693
+  },
+  {
+    "formula": "Y3Ni11",
+    "composition": {
+      "Y": 3,
+      "Ni": 11
+    },
+    "total_atoms": 14,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.7857142857142857
+  },
+  {
+    "formula": "Y3Ni13",
+    "composition": {
+      "Y": 3,
+      "Ni": 13
+    },
+    "total_atoms": 16,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8125
+  },
+  {
+    "formula": "Y3Ni14",
+    "composition": {
+      "Y": 3,
+      "Ni": 14
+    },
+    "total_atoms": 17,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8235294117647058
+  },
+  {
+    "formula": "Y3Ni16",
+    "composition": {
+      "Y": 3,
+      "Ni": 16
+    },
+    "total_atoms": 19,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8421052631578947
+  },
+  {
+    "formula": "Y3Ni17",
+    "composition": {
+      "Y": 3,
+      "Ni": 17
+    },
+    "total_atoms": 20,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.85
+  },
+  {
+    "formula": "Y4Ni13",
+    "composition": {
+      "Y": 4,
+      "Ni": 13
+    },
+    "total_atoms": 17,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.7647058823529411
+  },
+  {
+    "formula": "Y4Ni15",
+    "composition": {
+      "Y": 4,
+      "Ni": 15
+    },
+    "total_atoms": 19,
+    "rare_earth": "Y",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.7894736842105263
+  },
+  {
+    "formula": "Gd1Fe3",
+    "composition": {
+      "Gd": 1,
+      "Fe": 3
+    },
+    "total_atoms": 4,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.75
+  },
+  {
+    "formula": "Gd1Fe4",
+    "composition": {
+      "Gd": 1,
+      "Fe": 4
+    },
+    "total_atoms": 5,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8
+  },
+  {
+    "formula": "Gd1Fe5",
+    "composition": {
+      "Gd": 1,
+      "Fe": 5
+    },
+    "total_atoms": 6,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8333333333333334
+  },
+  {
+    "formula": "Gd1Fe6",
+    "composition": {
+      "Gd": 1,
+      "Fe": 6
+    },
+    "total_atoms": 7,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8571428571428571
+  },
+  {
+    "formula": "Gd1Fe7",
+    "composition": {
+      "Gd": 1,
+      "Fe": 7
+    },
+    "total_atoms": 8,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.875
+  },
+  {
+    "formula": "Gd1Fe8",
+    "composition": {
+      "Gd": 1,
+      "Fe": 8
+    },
+    "total_atoms": 9,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8888888888888888
+  },
+  {
+    "formula": "Gd1Fe9",
+    "composition": {
+      "Gd": 1,
+      "Fe": 9
+    },
+    "total_atoms": 10,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.9
+  },
+  {
+    "formula": "Gd1Fe10",
+    "composition": {
+      "Gd": 1,
+      "Fe": 10
+    },
+    "total_atoms": 11,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.9090909090909091
+  },
+  {
+    "formula": "Gd1Fe11",
+    "composition": {
+      "Gd": 1,
+      "Fe": 11
+    },
+    "total_atoms": 12,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.9166666666666666
+  },
+  {
+    "formula": "Gd1Fe12",
+    "composition": {
+      "Gd": 1,
+      "Fe": 12
+    },
+    "total_atoms": 13,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.9230769230769231
+  },
+  {
+    "formula": "Gd1Fe13",
+    "composition": {
+      "Gd": 1,
+      "Fe": 13
+    },
+    "total_atoms": 14,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.9285714285714286
+  },
+  {
+    "formula": "Gd1Fe14",
+    "composition": {
+      "Gd": 1,
+      "Fe": 14
+    },
+    "total_atoms": 15,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.9333333333333333
+  },
+  {
+    "formula": "Gd1Fe15",
+    "composition": {
+      "Gd": 1,
+      "Fe": 15
+    },
+    "total_atoms": 16,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.9375
+  },
+  {
+    "formula": "Gd1Fe16",
+    "composition": {
+      "Gd": 1,
+      "Fe": 16
+    },
+    "total_atoms": 17,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.9411764705882353
+  },
+  {
+    "formula": "Gd1Fe17",
+    "composition": {
+      "Gd": 1,
+      "Fe": 17
+    },
+    "total_atoms": 18,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.9444444444444444
+  },
+  {
+    "formula": "Gd1Fe18",
+    "composition": {
+      "Gd": 1,
+      "Fe": 18
+    },
+    "total_atoms": 19,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.9473684210526315
+  },
+  {
+    "formula": "Gd1Fe19",
+    "composition": {
+      "Gd": 1,
+      "Fe": 19
+    },
+    "total_atoms": 20,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.95
+  },
+  {
+    "formula": "Gd2Fe7",
+    "composition": {
+      "Gd": 2,
+      "Fe": 7
+    },
+    "total_atoms": 9,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.7777777777777778
+  },
+  {
+    "formula": "Gd2Fe9",
+    "composition": {
+      "Gd": 2,
+      "Fe": 9
+    },
+    "total_atoms": 11,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8181818181818182
+  },
+  {
+    "formula": "Gd2Fe11",
+    "composition": {
+      "Gd": 2,
+      "Fe": 11
+    },
+    "total_atoms": 13,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8461538461538461
+  },
+  {
+    "formula": "Gd2Fe13",
+    "composition": {
+      "Gd": 2,
+      "Fe": 13
+    },
+    "total_atoms": 15,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8666666666666667
+  },
+  {
+    "formula": "Gd2Fe15",
+    "composition": {
+      "Gd": 2,
+      "Fe": 15
+    },
+    "total_atoms": 17,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8823529411764706
+  },
+  {
+    "formula": "Gd2Fe17",
+    "composition": {
+      "Gd": 2,
+      "Fe": 17
+    },
+    "total_atoms": 19,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8947368421052632
+  },
+  {
+    "formula": "Gd3Fe10",
+    "composition": {
+      "Gd": 3,
+      "Fe": 10
+    },
+    "total_atoms": 13,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.7692307692307693
+  },
+  {
+    "formula": "Gd3Fe11",
+    "composition": {
+      "Gd": 3,
+      "Fe": 11
+    },
+    "total_atoms": 14,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.7857142857142857
+  },
+  {
+    "formula": "Gd3Fe13",
+    "composition": {
+      "Gd": 3,
+      "Fe": 13
+    },
+    "total_atoms": 16,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8125
+  },
+  {
+    "formula": "Gd3Fe14",
+    "composition": {
+      "Gd": 3,
+      "Fe": 14
+    },
+    "total_atoms": 17,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8235294117647058
+  },
+  {
+    "formula": "Gd3Fe16",
+    "composition": {
+      "Gd": 3,
+      "Fe": 16
+    },
+    "total_atoms": 19,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.8421052631578947
+  },
+  {
+    "formula": "Gd3Fe17",
+    "composition": {
+      "Gd": 3,
+      "Fe": 17
+    },
+    "total_atoms": 20,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.85
+  },
+  {
+    "formula": "Gd4Fe13",
+    "composition": {
+      "Gd": 4,
+      "Fe": 13
+    },
+    "total_atoms": 17,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.7647058823529411
+  },
+  {
+    "formula": "Gd4Fe15",
+    "composition": {
+      "Gd": 4,
+      "Fe": 15
+    },
+    "total_atoms": 19,
+    "rare_earth": "Gd",
+    "transition_metal": "Fe",
+    "tm_ratio": 0.7894736842105263
+  },
+  {
+    "formula": "Gd1Co3",
+    "composition": {
+      "Gd": 1,
+      "Co": 3
+    },
+    "total_atoms": 4,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.75
+  },
+  {
+    "formula": "Gd1Co4",
+    "composition": {
+      "Gd": 1,
+      "Co": 4
+    },
+    "total_atoms": 5,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8
+  },
+  {
+    "formula": "Gd1Co5",
+    "composition": {
+      "Gd": 1,
+      "Co": 5
+    },
+    "total_atoms": 6,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8333333333333334
+  },
+  {
+    "formula": "Gd1Co6",
+    "composition": {
+      "Gd": 1,
+      "Co": 6
+    },
+    "total_atoms": 7,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8571428571428571
+  },
+  {
+    "formula": "Gd1Co7",
+    "composition": {
+      "Gd": 1,
+      "Co": 7
+    },
+    "total_atoms": 8,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.875
+  },
+  {
+    "formula": "Gd1Co8",
+    "composition": {
+      "Gd": 1,
+      "Co": 8
+    },
+    "total_atoms": 9,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8888888888888888
+  },
+  {
+    "formula": "Gd1Co9",
+    "composition": {
+      "Gd": 1,
+      "Co": 9
+    },
+    "total_atoms": 10,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.9
+  },
+  {
+    "formula": "Gd1Co10",
+    "composition": {
+      "Gd": 1,
+      "Co": 10
+    },
+    "total_atoms": 11,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.9090909090909091
+  },
+  {
+    "formula": "Gd1Co11",
+    "composition": {
+      "Gd": 1,
+      "Co": 11
+    },
+    "total_atoms": 12,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.9166666666666666
+  },
+  {
+    "formula": "Gd1Co12",
+    "composition": {
+      "Gd": 1,
+      "Co": 12
+    },
+    "total_atoms": 13,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.9230769230769231
+  },
+  {
+    "formula": "Gd1Co13",
+    "composition": {
+      "Gd": 1,
+      "Co": 13
+    },
+    "total_atoms": 14,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.9285714285714286
+  },
+  {
+    "formula": "Gd1Co14",
+    "composition": {
+      "Gd": 1,
+      "Co": 14
+    },
+    "total_atoms": 15,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.9333333333333333
+  },
+  {
+    "formula": "Gd1Co15",
+    "composition": {
+      "Gd": 1,
+      "Co": 15
+    },
+    "total_atoms": 16,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.9375
+  },
+  {
+    "formula": "Gd1Co16",
+    "composition": {
+      "Gd": 1,
+      "Co": 16
+    },
+    "total_atoms": 17,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.9411764705882353
+  },
+  {
+    "formula": "Gd1Co17",
+    "composition": {
+      "Gd": 1,
+      "Co": 17
+    },
+    "total_atoms": 18,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.9444444444444444
+  },
+  {
+    "formula": "Gd1Co18",
+    "composition": {
+      "Gd": 1,
+      "Co": 18
+    },
+    "total_atoms": 19,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.9473684210526315
+  },
+  {
+    "formula": "Gd1Co19",
+    "composition": {
+      "Gd": 1,
+      "Co": 19
+    },
+    "total_atoms": 20,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.95
+  },
+  {
+    "formula": "Gd2Co7",
+    "composition": {
+      "Gd": 2,
+      "Co": 7
+    },
+    "total_atoms": 9,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.7777777777777778
+  },
+  {
+    "formula": "Gd2Co9",
+    "composition": {
+      "Gd": 2,
+      "Co": 9
+    },
+    "total_atoms": 11,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8181818181818182
+  },
+  {
+    "formula": "Gd2Co11",
+    "composition": {
+      "Gd": 2,
+      "Co": 11
+    },
+    "total_atoms": 13,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8461538461538461
+  },
+  {
+    "formula": "Gd2Co13",
+    "composition": {
+      "Gd": 2,
+      "Co": 13
+    },
+    "total_atoms": 15,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8666666666666667
+  },
+  {
+    "formula": "Gd2Co15",
+    "composition": {
+      "Gd": 2,
+      "Co": 15
+    },
+    "total_atoms": 17,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8823529411764706
+  },
+  {
+    "formula": "Gd2Co17",
+    "composition": {
+      "Gd": 2,
+      "Co": 17
+    },
+    "total_atoms": 19,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8947368421052632
+  },
+  {
+    "formula": "Gd3Co10",
+    "composition": {
+      "Gd": 3,
+      "Co": 10
+    },
+    "total_atoms": 13,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.7692307692307693
+  },
+  {
+    "formula": "Gd3Co11",
+    "composition": {
+      "Gd": 3,
+      "Co": 11
+    },
+    "total_atoms": 14,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.7857142857142857
+  },
+  {
+    "formula": "Gd3Co13",
+    "composition": {
+      "Gd": 3,
+      "Co": 13
+    },
+    "total_atoms": 16,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8125
+  },
+  {
+    "formula": "Gd3Co14",
+    "composition": {
+      "Gd": 3,
+      "Co": 14
+    },
+    "total_atoms": 17,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8235294117647058
+  },
+  {
+    "formula": "Gd3Co16",
+    "composition": {
+      "Gd": 3,
+      "Co": 16
+    },
+    "total_atoms": 19,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.8421052631578947
+  },
+  {
+    "formula": "Gd3Co17",
+    "composition": {
+      "Gd": 3,
+      "Co": 17
+    },
+    "total_atoms": 20,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.85
+  },
+  {
+    "formula": "Gd4Co13",
+    "composition": {
+      "Gd": 4,
+      "Co": 13
+    },
+    "total_atoms": 17,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.7647058823529411
+  },
+  {
+    "formula": "Gd4Co15",
+    "composition": {
+      "Gd": 4,
+      "Co": 15
+    },
+    "total_atoms": 19,
+    "rare_earth": "Gd",
+    "transition_metal": "Co",
+    "tm_ratio": 0.7894736842105263
+  },
+  {
+    "formula": "Gd1Ni3",
+    "composition": {
+      "Gd": 1,
+      "Ni": 3
+    },
+    "total_atoms": 4,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.75
+  },
+  {
+    "formula": "Gd1Ni4",
+    "composition": {
+      "Gd": 1,
+      "Ni": 4
+    },
+    "total_atoms": 5,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8
+  },
+  {
+    "formula": "Gd1Ni5",
+    "composition": {
+      "Gd": 1,
+      "Ni": 5
+    },
+    "total_atoms": 6,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8333333333333334
+  },
+  {
+    "formula": "Gd1Ni6",
+    "composition": {
+      "Gd": 1,
+      "Ni": 6
+    },
+    "total_atoms": 7,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8571428571428571
+  },
+  {
+    "formula": "Gd1Ni7",
+    "composition": {
+      "Gd": 1,
+      "Ni": 7
+    },
+    "total_atoms": 8,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.875
+  },
+  {
+    "formula": "Gd1Ni8",
+    "composition": {
+      "Gd": 1,
+      "Ni": 8
+    },
+    "total_atoms": 9,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8888888888888888
+  },
+  {
+    "formula": "Gd1Ni9",
+    "composition": {
+      "Gd": 1,
+      "Ni": 9
+    },
+    "total_atoms": 10,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.9
+  },
+  {
+    "formula": "Gd1Ni10",
+    "composition": {
+      "Gd": 1,
+      "Ni": 10
+    },
+    "total_atoms": 11,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.9090909090909091
+  },
+  {
+    "formula": "Gd1Ni11",
+    "composition": {
+      "Gd": 1,
+      "Ni": 11
+    },
+    "total_atoms": 12,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.9166666666666666
+  },
+  {
+    "formula": "Gd1Ni12",
+    "composition": {
+      "Gd": 1,
+      "Ni": 12
+    },
+    "total_atoms": 13,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.9230769230769231
+  },
+  {
+    "formula": "Gd1Ni13",
+    "composition": {
+      "Gd": 1,
+      "Ni": 13
+    },
+    "total_atoms": 14,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.9285714285714286
+  },
+  {
+    "formula": "Gd1Ni14",
+    "composition": {
+      "Gd": 1,
+      "Ni": 14
+    },
+    "total_atoms": 15,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.9333333333333333
+  },
+  {
+    "formula": "Gd1Ni15",
+    "composition": {
+      "Gd": 1,
+      "Ni": 15
+    },
+    "total_atoms": 16,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.9375
+  },
+  {
+    "formula": "Gd1Ni16",
+    "composition": {
+      "Gd": 1,
+      "Ni": 16
+    },
+    "total_atoms": 17,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.9411764705882353
+  },
+  {
+    "formula": "Gd1Ni17",
+    "composition": {
+      "Gd": 1,
+      "Ni": 17
+    },
+    "total_atoms": 18,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.9444444444444444
+  },
+  {
+    "formula": "Gd1Ni18",
+    "composition": {
+      "Gd": 1,
+      "Ni": 18
+    },
+    "total_atoms": 19,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.9473684210526315
+  },
+  {
+    "formula": "Gd1Ni19",
+    "composition": {
+      "Gd": 1,
+      "Ni": 19
+    },
+    "total_atoms": 20,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.95
+  },
+  {
+    "formula": "Gd2Ni7",
+    "composition": {
+      "Gd": 2,
+      "Ni": 7
+    },
+    "total_atoms": 9,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.7777777777777778
+  },
+  {
+    "formula": "Gd2Ni9",
+    "composition": {
+      "Gd": 2,
+      "Ni": 9
+    },
+    "total_atoms": 11,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8181818181818182
+  },
+  {
+    "formula": "Gd2Ni11",
+    "composition": {
+      "Gd": 2,
+      "Ni": 11
+    },
+    "total_atoms": 13,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8461538461538461
+  },
+  {
+    "formula": "Gd2Ni13",
+    "composition": {
+      "Gd": 2,
+      "Ni": 13
+    },
+    "total_atoms": 15,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8666666666666667
+  },
+  {
+    "formula": "Gd2Ni15",
+    "composition": {
+      "Gd": 2,
+      "Ni": 15
+    },
+    "total_atoms": 17,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8823529411764706
+  },
+  {
+    "formula": "Gd2Ni17",
+    "composition": {
+      "Gd": 2,
+      "Ni": 17
+    },
+    "total_atoms": 19,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8947368421052632
+  },
+  {
+    "formula": "Gd3Ni10",
+    "composition": {
+      "Gd": 3,
+      "Ni": 10
+    },
+    "total_atoms": 13,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.7692307692307693
+  },
+  {
+    "formula": "Gd3Ni11",
+    "composition": {
+      "Gd": 3,
+      "Ni": 11
+    },
+    "total_atoms": 14,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.7857142857142857
+  },
+  {
+    "formula": "Gd3Ni13",
+    "composition": {
+      "Gd": 3,
+      "Ni": 13
+    },
+    "total_atoms": 16,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8125
+  },
+  {
+    "formula": "Gd3Ni14",
+    "composition": {
+      "Gd": 3,
+      "Ni": 14
+    },
+    "total_atoms": 17,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8235294117647058
+  },
+  {
+    "formula": "Gd3Ni16",
+    "composition": {
+      "Gd": 3,
+      "Ni": 16
+    },
+    "total_atoms": 19,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.8421052631578947
+  },
+  {
+    "formula": "Gd3Ni17",
+    "composition": {
+      "Gd": 3,
+      "Ni": 17
+    },
+    "total_atoms": 20,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.85
+  },
+  {
+    "formula": "Gd4Ni13",
+    "composition": {
+      "Gd": 4,
+      "Ni": 13
+    },
+    "total_atoms": 17,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.7647058823529411
+  },
+  {
+    "formula": "Gd4Ni15",
+    "composition": {
+      "Gd": 4,
+      "Ni": 15
+    },
+    "total_atoms": 19,
+    "rare_earth": "Gd",
+    "transition_metal": "Ni",
+    "tm_ratio": 0.7894736842105263
+  }
+]
