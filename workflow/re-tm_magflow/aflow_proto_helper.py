@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """
-AFLOW prototype matching helper for R-T-T' ternary magnet candidates.
+AFLOW prototype matching helper for magnet candidates (R-T or R-T-T').
 
 For each structure:
   1. Get ANRL prototype label via `aflow --prototype`
-  2. Try direct ternary match via `aflow --compare2prototypes`
-  3. If no ternary match: merge T+T' into one species, try binary match
-     via `aflow --compare2prototypes --ignore_symmetry`
+  2. Try direct match via `aflow --compare2prototypes`
+  3. If no direct match and ternary: merge T+T' into one species,
+     try binary match via `aflow --compare2prototypes --ignore_symmetry`
   4. Report: aflow_proto (ANRL stoichiometry) and pearson_symbol
 
-Convention: A = rare earth, B = transition metal 1, C = transition metal 2
+Convention: A = rare earth, B = transition metal (1), C = transition metal (2)
 """
 
 import subprocess
@@ -188,59 +188,86 @@ def get_binary_stoich(vasp_path):
     return a, b
 
 
-def format_stoich_ternary(label):
-    """Extract stoichiometry from ANRL label (e.g., A16BC2 from A16BC2_hR19_160_...)."""
-    if not label:
-        return ''
-    return label.split('_')[0]
+def format_anrl(counts, labels='ABC'):
+    """Format counts dict into ANRL stoichiometry string (e.g. {1:2, 2:17} -> 'A2B17')."""
+    parts = []
+    for i, cnt in enumerate(counts):
+        lbl = labels[i]
+        if cnt == 1:
+            parts.append(lbl)
+        else:
+            parts.append(f'{lbl}{cnt}')
+    return ''.join(parts)
 
 
-def format_binary_proto(a, b):
-    """Format binary stoichiometry as AFLOW ANRL style."""
-    if a == 1:
-        a_str = 'A'
-    else:
-        a_str = f'A{a}'
-    if b == 1:
-        b_str = 'B'
-    else:
-        b_str = f'B{b}'
-    return f'{a_str}{b_str}'
+def get_our_stoich(vasp_path):
+    """
+    Read POSCAR and return canonical stoichiometry with our convention:
+    A = rare earth, B = TM (or TM1), C = TM2.
+
+    For binary R-T: returns e.g. 'AB5'
+    For ternary R-T-T': returns e.g. 'A2B16C'
+    """
+    with open(vasp_path) as f:
+        lines = f.readlines()
+    elem_line = lines[5].split()
+    count_line = [int(x) for x in lines[6].split()]
+
+    re_elems = [(e, c) for e, c in zip(elem_line, count_line) if e in RARE_EARTH]
+    tm_elems = [(e, c) for e, c in zip(elem_line, count_line) if e not in RARE_EARTH]
+
+    re_count = sum(c for _, c in re_elems)
+    tm_counts = [c for _, c in tm_elems]
+
+    all_counts = [re_count] + tm_counts
+    g = all_counts[0]
+    for c in all_counts[1:]:
+        g = gcd(g, c)
+    reduced = [c // g for c in all_counts]
+
+    return format_anrl(reduced)
 
 
 def process_structure(vasp_path):
     """Process one structure and return (aflow_proto, pearson_symbol, match_type)."""
     sid = Path(vasp_path).stem
 
-    # Step 1: Get ternary ANRL label and Pearson
-    ternary_label, pearson, ternary_stoich = run_aflow_prototype(vasp_path)
-    if not ternary_label:
+    # Step 1: Get ANRL label and Pearson from aflow --prototype
+    aflow_label, pearson, _ = run_aflow_prototype(vasp_path)
+    if not aflow_label:
         return sid, '', '', 'failed'
 
-    # Step 2: Try direct ternary match
-    ternary_match = run_compare2prototypes(vasp_path, ignore_symmetry=False)
-    if ternary_match:
-        return sid, ternary_stoich, pearson, 'ternary'
+    # Compute stoichiometry with our convention (A=RE, B=TM1, C=TM2)
+    our_stoich = get_our_stoich(vasp_path)
 
-    # Step 3: Create binary merged POSCAR and try binary match
-    binary_path = make_binary_poscar(vasp_path)
-    if binary_path:
-        try:
-            binary_match = run_compare2prototypes(binary_path, ignore_symmetry=True)
-            if binary_match:
-                a, b = get_binary_stoich(vasp_path)
-                binary_label, binary_pearson, _ = run_aflow_prototype(binary_path)
-                # Use Pearson from binary analysis if available
-                final_pearson = binary_pearson if binary_pearson else pearson
-                proto = format_binary_proto(a, b)
-                return sid, proto, final_pearson, 'binary'
-        finally:
-            os.unlink(binary_path)
-    else:
-        pass
+    # Determine number of species
+    with open(vasp_path) as f:
+        lines = f.readlines()
+    n_species = len(lines[5].split())
+
+    # Step 2: Try direct match against AFLOW prototype encyclopedia
+    direct_match = run_compare2prototypes(vasp_path, ignore_symmetry=False)
+    if direct_match:
+        match_type = 'ternary' if n_species >= 3 else 'binary'
+        return sid, our_stoich, pearson, match_type
+
+    # Step 3: For ternary (3+ species): merge TMs, try binary match
+    if n_species >= 3:
+        binary_path = make_binary_poscar(vasp_path)
+        if binary_path:
+            try:
+                binary_match = run_compare2prototypes(binary_path, ignore_symmetry=True)
+                if binary_match:
+                    a, b = get_binary_stoich(vasp_path)
+                    _, binary_pearson, _ = run_aflow_prototype(binary_path)
+                    final_pearson = binary_pearson if binary_pearson else pearson
+                    proto = format_anrl([a, b])
+                    return sid, proto, final_pearson, 'binary_merge'
+            finally:
+                os.unlink(binary_path)
 
     # Step 4: No match
-    return sid, ternary_stoich, pearson, 'new'
+    return sid, our_stoich, pearson, 'new'
 
 
 def main():
@@ -323,6 +350,7 @@ def main():
     # Summary
     n_ternary = sum(1 for v in results.values() if v[2] == 'ternary')
     n_binary = sum(1 for v in results.values() if v[2] == 'binary')
+    n_binary_merge = sum(1 for v in results.values() if v[2] == 'binary_merge')
     n_new = sum(1 for v in results.values() if v[2] == 'new')
     n_failed = sum(1 for v in results.values() if v[2] == 'failed')
 
@@ -331,6 +359,7 @@ def main():
     print(f"  Total:          {n_struct}")
     print(f"  Ternary match:  {n_ternary}")
     print(f"  Binary match:   {n_binary}")
+    print(f"  Binary merge:   {n_binary_merge}")
     print(f"  New prototype:  {n_new}")
     print(f"  Failed:         {n_failed}")
     print(f"\n  Output:  {args.output}")
