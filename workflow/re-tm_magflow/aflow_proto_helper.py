@@ -150,16 +150,16 @@ def make_permuted_poscar(vasp_path):
 def run_compare2prototypes(vasp_path, ignore_symmetry=False):
     """Run `aflow --compare2prototypes` trying all species permutations.
     Returns matched ANRL label or None."""
-    arnl = _run_compare2prototypes_once(vasp_path, ignore_symmetry)
-    if arnl:
-        return arnl
+    anrl = _run_compare2prototypes_once(vasp_path, ignore_symmetry)
+    if anrl:
+        return anrl
 
     perm_paths = make_permuted_poscar(vasp_path)
     try:
         for ppath in perm_paths:
-            arnl = _run_compare2prototypes_once(ppath, ignore_symmetry)
-            if arnl:
-                return arnl
+            anrl = _run_compare2prototypes_once(ppath, ignore_symmetry)
+            if anrl:
+                return anrl
     finally:
         for ppath in perm_paths:
             os.unlink(ppath)
@@ -351,13 +351,13 @@ def get_our_stoich(vasp_path):
 
 
 def process_structure(vasp_path):
-    """Process one structure and return (sid, proto, pearson, match_type, arnl, fallback)."""
+    """Process one structure and return (sid, proto, pearson, match_type, anrl, fallback)."""
     sid = Path(vasp_path).stem
 
     # Step 1: Get ANRL label and Pearson from aflow --prototype
     aflow_label, pearson, _ = run_aflow_prototype(vasp_path)
     if not aflow_label:
-        return sid, '', '', 'failed', '', False
+        return sid, '', '', 'failed', 'null', False
 
     # Compute stoichiometry with our convention (A=RE, B=TM1, C=TM2)
     our_stoich = get_our_stoich(vasp_path)
@@ -368,10 +368,10 @@ def process_structure(vasp_path):
     n_species = len(lines[5].split())
 
     # Step 2: Try direct match via --compare2prototypes
-    arnl = run_compare2prototypes(vasp_path, ignore_symmetry=False)
-    if arnl:
+    anrl = run_compare2prototypes(vasp_path, ignore_symmetry=False)
+    if anrl:
         match_type = 'ternary' if n_species >= 3 else 'binary'
-        return sid, our_stoich, pearson, match_type, arnl, False
+        return sid, our_stoich, pearson, match_type, anrl, False
 
     # Step 3: Fallback - check if the prototype label from step 1 exists in AFLOW library
     # and verify structural similarity via --compare_structures
@@ -395,13 +395,13 @@ def process_structure(vasp_path):
         binary_path = make_binary_poscar(vasp_path)
         if binary_path:
             try:
-                arnl = run_compare2prototypes(binary_path, ignore_symmetry=True)
-                if arnl:
+                anrl = run_compare2prototypes(binary_path, ignore_symmetry=True)
+                if anrl:
                     a, b = get_binary_stoich(vasp_path)
                     _, binary_pearson, _ = run_aflow_prototype(binary_path)
                     final_pearson = binary_pearson if binary_pearson else pearson
                     proto = format_anrl([a, b])
-                    return sid, proto, final_pearson, 'binary_merge', arnl, False
+                    return sid, proto, final_pearson, 'binary_merge', anrl, False
 
                 # Fallback for binary_merge too
                 bin_label, bin_pearson, _ = run_aflow_prototype(binary_path)
@@ -425,7 +425,7 @@ def process_structure(vasp_path):
                 os.unlink(binary_path)
 
     # Step 5: No match
-    return sid, our_stoich, pearson, 'new', '', False
+    return sid, our_stoich, pearson, 'new', 'null', False
 
 
 def main():
@@ -473,8 +473,8 @@ def main():
             count += 1
             if count % 10 == 0 or count == n_struct:
                 print(f"  Processing {count} / {n_struct} ...", flush=True)
-            sid, proto, pearson, match_type, arnl, fallback = process_structure(str(vasp_file))
-            results[sid] = (proto, pearson, match_type, arnl)
+            sid, proto, pearson, match_type, anrl, fallback = process_structure(str(vasp_file))
+            results[sid] = (proto, pearson, match_type, anrl)
             if fallback:
                 n_fallback += 1
     else:
@@ -484,18 +484,18 @@ def main():
                 count += 1
                 if count % 10 == 0 or count == n_struct:
                     print(f"  Processing {count} / {n_struct} ...", flush=True)
-                sid, proto, pearson, match_type, arnl, fallback = future.result()
-                results[sid] = (proto, pearson, match_type, arnl)
+                sid, proto, pearson, match_type, anrl, fallback = future.result()
+                results[sid] = (proto, pearson, match_type, anrl)
                 if fallback:
                     n_fallback += 1
 
     # Write full AFLOW output CSV
     with open(args.output, 'w', newline='') as f:
         writer = csv.writer(f)
-        writer.writerow(['structure_id', 'aflow_proto', 'aflow_arnl', 'pearson_symbol', 'match_type'])
+        writer.writerow(['structure_id', 'aflow_proto', 'aflow_anrl', 'pearson_symbol', 'match_type'])
         for sid in sorted(results.keys()):
-            proto, pearson, match_type, arnl = results[sid]
-            writer.writerow([sid, proto, arnl, pearson, match_type])
+            proto, pearson, match_type, anrl = results[sid]
+            writer.writerow([sid, proto, anrl, pearson, match_type])
 
     # Write merged CSV (input + aflow columns)
     with open(args.merged, 'w', newline='') as f:
@@ -503,18 +503,18 @@ def main():
         writer.writerow([
             'structure_id', 'mattersim_e_hull', 'dft_e_hull',
             'mattersim_energy_per_atom', 'vasp_energy_per_atom',
-            'spg_num', 'aflow_proto', 'aflow_arnl', 'pearson_symbol', 'match_type'
+            'spg_num', 'aflow_proto', 'aflow_anrl', 'pearson_symbol', 'match_type'
         ])
         for row in input_rows:
             sid = row['structure_id']
             if sid in results:
-                proto, pearson, match_type, arnl = results[sid]
+                proto, pearson, match_type, anrl = results[sid]
             else:
-                proto, pearson, match_type, arnl = '', '', '', ''
+                proto, pearson, match_type, anrl = '', '', '', 'null'
             writer.writerow([
                 sid, row['mattersim_e_hull'], row['dft_e_hull'],
                 row['mattersim_energy_per_atom'], row['vasp_energy_per_atom'],
-                row['spg_num'], proto, arnl, pearson, match_type
+                row['spg_num'], proto, anrl, pearson, match_type
             ])
 
     # Summary
@@ -549,9 +549,9 @@ def main():
     for p, cnt in pearson_counts.most_common(20):
         print(f"  {cnt:4d}  {p}")
 
-    arnl_counts = Counter(v[3] for v in results.values() if v[3])
-    print(f"\nTop 20 most common aflow_arnl:")
-    for a, cnt in arnl_counts.most_common(20):
+    anrl_counts = Counter(v[3] for v in results.values() if v[3] != 'null')
+    print(f"\nTop 20 most common aflow_anrl:")
+    for a, cnt in anrl_counts.most_common(20):
         print(f"  {cnt:4d}  {a}")
 
 
