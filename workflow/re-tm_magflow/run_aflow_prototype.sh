@@ -23,6 +23,7 @@ INPUT_CSV="ter_mag_results/candidates.csv"
 OUTPUT_CSV="ter_mag_results/aflow_prototypes.csv"
 MERGED_CSV="ter_mag_results/candidates_w_proto.csv"
 NP=1
+AFLOW_NP=1
 
 print_usage() {
     echo "Usage: $0 [OPTIONS]"
@@ -32,7 +33,8 @@ print_usage() {
     echo "  --input FILE        Input candidates CSV (default: ter_mag_results/candidates.csv)"
     echo "  --output FILE       AFLOW output CSV (default: ter_mag_results/aflow_prototypes.csv)"
     echo "  --merged FILE       Merged output CSV (default: ter_mag_results/candidates_w_proto.csv)"
-    echo "  --np N              Number of parallel workers (default: 1)"
+    echo "  --np N              Number of parallel Python workers (default: 1)"
+    echo "  --aflow-np N        Number of threads per aflow call (default: 1)"
     echo "  -h, --help          Show this help"
 }
 
@@ -43,6 +45,7 @@ while [[ $# -gt 0 ]]; do
         --output) OUTPUT_CSV="$2"; shift 2 ;;
         --merged) MERGED_CSV="$2"; shift 2 ;;
         --np) NP="$2"; shift 2 ;;
+        --aflow-np) AFLOW_NP="$2"; shift 2 ;;
         -h|--help) print_usage; exit 0 ;;
         *) echo "Unknown option: $1"; print_usage; exit 1 ;;
     esac
@@ -72,6 +75,7 @@ echo "  Input CSV:     $INPUT_CSV"
 echo "  Output:        $OUTPUT_CSV"
 echo "  Merged:        $MERGED_CSV"
 echo "  Parallel:      $NP"
+echo "  AFLOW threads: $AFLOW_NP"
 echo "======================================================================"
 echo ""
 
@@ -81,4 +85,5 @@ python3 "$(dirname "$0")/aflow_proto_helper.py" \
     --input "$INPUT_CSV" \
     --output "$OUTPUT_CSV" \
     --merged "$MERGED_CSV" \
-    --np "$NP"
+    --np "$NP" \
+    --aflow-np "$AFLOW_NP"

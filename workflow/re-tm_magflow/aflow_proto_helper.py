@@ -35,7 +35,7 @@ def run_aflow_prototype(vasp_path):
         result = subprocess.run(
             ['aflow', '--prototype'],
             stdin=open(vasp_path),
-            capture_output=True, text=True, timeout=30
+            capture_output=True, text=True
         )
         output = result.stdout
     except Exception:
@@ -56,36 +56,158 @@ def run_aflow_prototype(vasp_path):
     return label, pearson, stoich
 
 
-def run_compare2prototypes(vasp_path, ignore_symmetry=False):
-    """Run `aflow --compare2prototypes` and return True if a match is found."""
-    cmd = ['aflow', '--compare2prototypes', '--catalog=all', '--screen_only']
+AFLOW_NP = 1
+
+
+def _run_compare2prototypes_once(vasp_path, ignore_symmetry=False):
+    """Run `aflow --compare2prototypes` on a single file.
+    Returns matched ANRL label (e.g. 'AB2C9_hR12_166_a_c_bch-001') or None."""
+    cmd = ['aflow', '--compare2prototypes', '--catalog=all', '--screen_only', '--quiet']
+    if AFLOW_NP > 1:
+        cmd.append(f'--np={AFLOW_NP}')
     if ignore_symmetry:
         cmd.append('--ignore_symmetry')
     try:
         result = subprocess.run(
             cmd,
             stdin=open(vasp_path),
-            capture_output=True, text=True, timeout=60
+            capture_output=True, text=True
         )
         output = result.stdout + result.stderr
     except Exception:
-        return False
+        return None
 
     if 'No compatible prototypes found' in output:
-        return False
+        return None
 
-    # Check if any duplicate found with misfit < 0.1
     for line in output.splitlines():
         line = line.strip()
-        # Lines like "  212                    0.0784532"
-        match = re.search(r'\s+([\d.]+)\s*$', line)
+        match = re.search(r'^(\S+[-]\d+)\s+([\d.]+)\s*$', line)
         if match:
             try:
-                misfit = float(match.group(1))
+                misfit = float(match.group(2))
                 if misfit < 0.1:
-                    return True
+                    return match.group(1)
             except ValueError:
                 continue
+    return None
+
+
+def make_permuted_poscar(vasp_path):
+    """Create POSCARs with all permutations of species ordering.
+    Returns list of (temp_path,) for each permutation (excluding original order).
+    """
+    from itertools import permutations
+
+    with open(vasp_path) as f:
+        lines = f.readlines()
+
+    elem_line = lines[5].split()
+    count_line = [int(x) for x in lines[6].split()]
+    n_species = len(elem_line)
+
+    if n_species < 2:
+        return []
+
+    # Parse coordinate block
+    coord_start = 8
+    coords_by_species = []
+    idx = coord_start
+    for cnt in count_line:
+        species_coords = []
+        for _ in range(cnt):
+            if idx < len(lines) and lines[idx].strip():
+                species_coords.append(lines[idx])
+                idx += 1
+        coords_by_species.append(species_coords)
+
+    # Generate all permutations except identity
+    identity = tuple(range(n_species))
+    tmp_paths = []
+    for perm in permutations(range(n_species)):
+        if perm == identity:
+            continue
+        new_elems = [elem_line[i] for i in perm]
+        new_counts = [count_line[i] for i in perm]
+        new_coords = []
+        for i in perm:
+            new_coords.extend(coords_by_species[i])
+
+        new_lines = lines[0:5]
+        new_lines.append('   ' + '   '.join(new_elems) + '\n')
+        new_lines.append('   ' + '   '.join(str(c) for c in new_counts) + '\n')
+        new_lines.append(lines[7])
+        new_lines.extend(new_coords)
+
+        tmp = tempfile.NamedTemporaryFile(mode='w', suffix='.vasp', delete=False)
+        tmp.write(''.join(new_lines))
+        tmp.close()
+        tmp_paths.append(tmp.name)
+
+    return tmp_paths
+
+
+def run_compare2prototypes(vasp_path, ignore_symmetry=False):
+    """Run `aflow --compare2prototypes` trying all species permutations.
+    Returns matched ANRL label or None."""
+    arnl = _run_compare2prototypes_once(vasp_path, ignore_symmetry)
+    if arnl:
+        return arnl
+
+    perm_paths = make_permuted_poscar(vasp_path)
+    try:
+        for ppath in perm_paths:
+            arnl = _run_compare2prototypes_once(ppath, ignore_symmetry)
+            if arnl:
+                return arnl
+    finally:
+        for ppath in perm_paths:
+            os.unlink(ppath)
+
+    return None
+
+
+def check_prototype_exists(label):
+    """Check if an ANRL prototype label exists in the AFLOW library.
+    Returns True if `aflow --proto=<label>` generates a valid structure."""
+    try:
+        result = subprocess.run(
+            ['aflow', f'--proto={label}'],
+            capture_output=True, text=True
+        )
+        return result.returncode == 0 and 'Direct' in result.stdout
+    except Exception:
+        return False
+
+
+def verify_with_compare_structures(vasp_path, label, params):
+    """Generate ideal prototype and compare with --compare_structures.
+    Returns True if misfit < 0.1."""
+    try:
+        gen_result = subprocess.run(
+            ['aflow', f'--proto={label}', f'--params={params}'],
+            capture_output=True, text=True
+        )
+        if gen_result.returncode != 0 or 'Direct' not in gen_result.stdout:
+            return False
+
+        tmp = tempfile.NamedTemporaryFile(mode='w', suffix='.vasp', delete=False)
+        tmp.write(gen_result.stdout)
+        tmp.close()
+
+        cmp_result = subprocess.run(
+            ['aflow', f'--compare_structures={tmp.name},{vasp_path}', '--quiet'],
+            capture_output=True, text=True
+        )
+        os.unlink(tmp.name)
+
+        for line in cmp_result.stdout.splitlines():
+            match = re.search(r'([\d.eE+-]+)\s*:\s*MATCH', line)
+            if match:
+                misfit = float(match.group(1))
+                return misfit < 0.1
+    except Exception:
+        pass
     return False
 
 
@@ -229,13 +351,13 @@ def get_our_stoich(vasp_path):
 
 
 def process_structure(vasp_path):
-    """Process one structure and return (aflow_proto, pearson_symbol, match_type)."""
+    """Process one structure and return (sid, proto, pearson, match_type, arnl, fallback)."""
     sid = Path(vasp_path).stem
 
     # Step 1: Get ANRL label and Pearson from aflow --prototype
     aflow_label, pearson, _ = run_aflow_prototype(vasp_path)
     if not aflow_label:
-        return sid, '', '', 'failed'
+        return sid, '', '', 'failed', '', False
 
     # Compute stoichiometry with our convention (A=RE, B=TM1, C=TM2)
     our_stoich = get_our_stoich(vasp_path)
@@ -245,39 +367,82 @@ def process_structure(vasp_path):
         lines = f.readlines()
     n_species = len(lines[5].split())
 
-    # Step 2: Try direct match against AFLOW prototype encyclopedia
-    direct_match = run_compare2prototypes(vasp_path, ignore_symmetry=False)
-    if direct_match:
+    # Step 2: Try direct match via --compare2prototypes
+    arnl = run_compare2prototypes(vasp_path, ignore_symmetry=False)
+    if arnl:
         match_type = 'ternary' if n_species >= 3 else 'binary'
-        return sid, our_stoich, pearson, match_type
+        return sid, our_stoich, pearson, match_type, arnl, False
 
-    # Step 3: For ternary (3+ species): merge TMs, try binary match
+    # Step 3: Fallback - check if the prototype label from step 1 exists in AFLOW library
+    # and verify structural similarity via --compare_structures
+    if check_prototype_exists(aflow_label):
+        result = subprocess.run(
+            ['aflow', '--prototype'],
+            stdin=open(vasp_path),
+            capture_output=True, text=True
+        )
+        params_str = ''
+        for line in result.stdout.splitlines():
+            if line.startswith('params values'):
+                params_str = line.split(':', 1)[1].strip()
+                break
+        if params_str and verify_with_compare_structures(vasp_path, aflow_label, params_str):
+            match_type = 'ternary' if n_species >= 3 else 'binary'
+            return sid, our_stoich, pearson, match_type, f'{aflow_label}-001', True
+
+    # Step 4: For ternary (3+ species): merge TMs, try binary match
     if n_species >= 3:
         binary_path = make_binary_poscar(vasp_path)
         if binary_path:
             try:
-                binary_match = run_compare2prototypes(binary_path, ignore_symmetry=True)
-                if binary_match:
+                arnl = run_compare2prototypes(binary_path, ignore_symmetry=True)
+                if arnl:
                     a, b = get_binary_stoich(vasp_path)
                     _, binary_pearson, _ = run_aflow_prototype(binary_path)
                     final_pearson = binary_pearson if binary_pearson else pearson
                     proto = format_anrl([a, b])
-                    return sid, proto, final_pearson, 'binary_merge'
+                    return sid, proto, final_pearson, 'binary_merge', arnl, False
+
+                # Fallback for binary_merge too
+                bin_label, bin_pearson, _ = run_aflow_prototype(binary_path)
+                if bin_label and check_prototype_exists(bin_label):
+                    bin_result = subprocess.run(
+                        ['aflow', '--prototype'],
+                        stdin=open(binary_path),
+                        capture_output=True, text=True
+                    )
+                    bin_params = ''
+                    for line in bin_result.stdout.splitlines():
+                        if line.startswith('params values'):
+                            bin_params = line.split(':', 1)[1].strip()
+                            break
+                    if bin_params and verify_with_compare_structures(binary_path, bin_label, bin_params):
+                        a, b = get_binary_stoich(vasp_path)
+                        final_pearson = bin_pearson if bin_pearson else pearson
+                        proto = format_anrl([a, b])
+                        return sid, proto, final_pearson, 'binary_merge', f'{bin_label}-001', True
             finally:
                 os.unlink(binary_path)
 
-    # Step 4: No match
-    return sid, our_stoich, pearson, 'new'
+    # Step 5: No match
+    return sid, our_stoich, pearson, 'new', '', False
 
 
 def main():
+    global AFLOW_NP
+
     parser = argparse.ArgumentParser()
     parser.add_argument('--struct-dir', type=Path, required=True)
     parser.add_argument('--input', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--merged', type=Path, required=True)
-    parser.add_argument('--np', type=int, default=1)
+    parser.add_argument('--np', type=int, default=1,
+                        help='Number of parallel Python workers')
+    parser.add_argument('--aflow-np', type=int, default=1,
+                        help='Number of threads per aflow call (--np flag to aflow)')
     args = parser.parse_args()
+
+    AFLOW_NP = args.aflow_np
 
     vasp_files = sorted(args.struct_dir.glob('*.vasp'))
     n_struct = len(vasp_files)
@@ -300,6 +465,7 @@ def main():
 
     # Process all structures
     results = {}
+    n_fallback = 0
     count = 0
 
     if args.np <= 1:
@@ -307,8 +473,10 @@ def main():
             count += 1
             if count % 10 == 0 or count == n_struct:
                 print(f"  Processing {count} / {n_struct} ...", flush=True)
-            sid, proto, pearson, match_type = process_structure(str(vasp_file))
-            results[sid] = (proto, pearson, match_type)
+            sid, proto, pearson, match_type, arnl, fallback = process_structure(str(vasp_file))
+            results[sid] = (proto, pearson, match_type, arnl)
+            if fallback:
+                n_fallback += 1
     else:
         with ProcessPoolExecutor(max_workers=args.np) as executor:
             futures = {executor.submit(process_structure, str(f)): f for f in vasp_files}
@@ -316,35 +484,37 @@ def main():
                 count += 1
                 if count % 10 == 0 or count == n_struct:
                     print(f"  Processing {count} / {n_struct} ...", flush=True)
-                sid, proto, pearson, match_type = future.result()
-                results[sid] = (proto, pearson, match_type)
+                sid, proto, pearson, match_type, arnl, fallback = future.result()
+                results[sid] = (proto, pearson, match_type, arnl)
+                if fallback:
+                    n_fallback += 1
 
     # Write full AFLOW output CSV
     with open(args.output, 'w', newline='') as f:
         writer = csv.writer(f)
-        writer.writerow(['structure_id', 'aflow_proto', 'pearson_symbol', 'match_type'])
+        writer.writerow(['structure_id', 'aflow_proto', 'aflow_arnl', 'pearson_symbol', 'match_type'])
         for sid in sorted(results.keys()):
-            proto, pearson, match_type = results[sid]
-            writer.writerow([sid, proto, pearson, match_type])
+            proto, pearson, match_type, arnl = results[sid]
+            writer.writerow([sid, proto, arnl, pearson, match_type])
 
-    # Write merged CSV (input + aflow_proto + pearson_symbol + match_type columns)
+    # Write merged CSV (input + aflow columns)
     with open(args.merged, 'w', newline='') as f:
         writer = csv.writer(f)
         writer.writerow([
             'structure_id', 'mattersim_e_hull', 'dft_e_hull',
             'mattersim_energy_per_atom', 'vasp_energy_per_atom',
-            'spg_num', 'aflow_proto', 'pearson_symbol', 'match_type'
+            'spg_num', 'aflow_proto', 'aflow_arnl', 'pearson_symbol', 'match_type'
         ])
         for row in input_rows:
             sid = row['structure_id']
             if sid in results:
-                proto, pearson, match_type = results[sid]
+                proto, pearson, match_type, arnl = results[sid]
             else:
-                proto, pearson, match_type = '', '', ''
+                proto, pearson, match_type, arnl = '', '', '', ''
             writer.writerow([
                 sid, row['mattersim_e_hull'], row['dft_e_hull'],
                 row['mattersim_energy_per_atom'], row['vasp_energy_per_atom'],
-                row['spg_num'], proto, pearson, match_type
+                row['spg_num'], proto, arnl, pearson, match_type
             ])
 
     # Summary
@@ -362,6 +532,7 @@ def main():
     print(f"  Binary merge:   {n_binary_merge}")
     print(f"  New prototype:  {n_new}")
     print(f"  Failed:         {n_failed}")
+    print(f"  (via fallback): {n_fallback}")
     print(f"\n  Output:  {args.output}")
     print(f"  Merged:  {args.merged}")
     print(f"{'='*70}")
@@ -377,6 +548,11 @@ def main():
     print(f"\nTop 20 most common Pearson symbols:")
     for p, cnt in pearson_counts.most_common(20):
         print(f"  {cnt:4d}  {p}")
+
+    arnl_counts = Counter(v[3] for v in results.values() if v[3])
+    print(f"\nTop 20 most common aflow_arnl:")
+    for a, cnt in arnl_counts.most_common(20):
+        print(f"  {cnt:4d}  {a}")
 
 
 if __name__ == '__main__':
