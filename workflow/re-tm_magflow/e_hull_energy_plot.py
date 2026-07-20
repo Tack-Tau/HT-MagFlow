@@ -80,6 +80,19 @@ def get_entry_chemsys(entry):
     return '-'.join(sorted(str(e) for e in Composition(comp).elements))
 
 
+def filter_by_excluded_elements(data_list, excluded_elements):
+    """Remove entries whose composition or structure_id contains any excluded element."""
+    if not excluded_elements:
+        return data_list
+    def has_excluded(entry):
+        sid = entry.get('structure_id', '')
+        comp_str = str(entry.get('composition', ''))
+        chemsys = entry.get('chemsys', '')
+        text = f"{sid} {comp_str} {chemsys}"
+        return any(elem in text for elem in excluded_elements)
+    return [d for d in data_list if not has_excluded(d)]
+
+
 def filter_by_systems(data_list, systems):
     """Filter entries whose chemsys is a sub-system of any requested system
     (so elemental references are kept for binary system queries)."""
@@ -647,6 +660,12 @@ Examples:
         default='',
         help="Filename prefix for output plots (e.g., 'binary_' or 'ternary_')"
     )
+    parser.add_argument(
+        '--exclude-elements',
+        nargs='+',
+        default=None,
+        help="Exclude entries containing these elements (e.g., Gd Tb)"
+    )
     
     args = parser.parse_args()
     
@@ -666,11 +685,24 @@ Examples:
         print(f"Mode: MERGE ({len(results_dirs)} directories)")
     if args.systems:
         print(f"Systems filter: {args.systems}")
+    if args.exclude_elements:
+        print(f"Excluding elements: {args.exclude_elements}")
     print("="*70)
     
     if merge_mode:
         print("\nLoading and merging JSON files...")
         hull_comparison_data, prescreen_data, dft_results_data = load_and_merge(results_dirs)
+
+        if args.exclude_elements:
+            hull_comparison_data['matched_structures'] = filter_by_excluded_elements(
+                hull_comparison_data['matched_structures'], args.exclude_elements)
+            prescreen_data['results'] = filter_by_excluded_elements(
+                prescreen_data['results'], args.exclude_elements)
+            dft_results_data['results'] = filter_by_excluded_elements(
+                dft_results_data['results'], args.exclude_elements)
+            print(f"  After element exclusion: {len(hull_comparison_data['matched_structures'])} hull, "
+                  f"{len(prescreen_data['results'])} prescreened, "
+                  f"{len(dft_results_data['results'])} DFT")
 
         hull_outlier_threshold = hull_comparison_data.get('summary', {}).get('outlier_threshold')
         outlier_threshold_to_use = args.outlier_threshold
@@ -730,6 +762,16 @@ Examples:
                 mp_mattersim_cache, mp_dft_cache]):
         print("\nERROR: Failed to load one or more JSON files")
         return 1
+    
+    if args.exclude_elements:
+        hull_comparison_data['matched_structures'] = filter_by_excluded_elements(
+            hull_comparison_data['matched_structures'], args.exclude_elements)
+        prescreen_data['results'] = filter_by_excluded_elements(
+            prescreen_data['results'], args.exclude_elements)
+        dft_results_data['results'] = filter_by_excluded_elements(
+            dft_results_data['results'], args.exclude_elements)
+        mp_mattersim_cache = filter_by_excluded_elements(mp_mattersim_cache, args.exclude_elements)
+        mp_dft_cache = filter_by_excluded_elements(mp_dft_cache, args.exclude_elements)
     
     print("\n" + "="*70)
     print("Generating Plots")
