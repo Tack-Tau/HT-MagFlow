@@ -48,6 +48,13 @@ if ! python3 -c "import pymatgen" 2>/dev/null; then
     exit 1
 fi
 
+# Check MP_API_KEY (needed for E_hull computation after relaxation)
+if [ -z "$MP_API_KEY" ]; then
+    echo "WARNING: MP_API_KEY is not set. E_hull will NOT be computed."
+    echo "  Set it with: export MP_API_KEY=your_key_here"
+    echo ""
+fi
+
 # Expand paths
 CACHE_FILE=$(eval echo "$CACHE_FILE")
 OUTPUT_DIR=$(eval echo "$OUTPUT_DIR")

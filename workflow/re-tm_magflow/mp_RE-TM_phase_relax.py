@@ -16,16 +16,42 @@ import os
 import sys
 import json
 import time
+import types
 import argparse
 import warnings
 import subprocess
 from pathlib import Path
 from datetime import datetime
 
+# ---------------------------------------------------------------------------
+# Shim: the legacy MPRester deserialises ComputedEntry objects whose
+# @module may reference paths that moved between pymatgen versions.
+# Map old paths to the modules that actually exist in this build.
+# ---------------------------------------------------------------------------
+import pymatgen.entries.computed_entries
+import pymatgen.entries.compatibility
+sys.modules.setdefault('pymatgen.core.entries',
+                       pymatgen.entries.computed_entries)
+sys.modules.setdefault('pymatgen.analysis.compatibility',
+                       pymatgen.entries.compatibility)
+
 from pymatgen.core import Structure, Composition, Element
 from pymatgen.io.vasp.sets import MPRelaxSet
 from pymatgen.io.vasp.outputs import Vasprun
+from pymatgen.io.ase import AseAtomsAdaptor
 from pymatgen.analysis.phase_diagram import PhaseDiagram, PDEntry
+
+try:
+    from pyxtal import pyxtal
+    PYXTAL_AVAILABLE = True
+except ImportError:
+    PYXTAL_AVAILABLE = False
+    print("WARNING: PyXtal not available. Structures will not be symmetrized.")
+
+try:
+    from pymatgen.ext.matproj import MPRester
+except ImportError:
+    MPRester = None
 
 try:
     import requests
@@ -35,9 +61,14 @@ except ImportError:
 warnings.filterwarnings('ignore', category=UserWarning, message='.*POTCAR data with symbol.*')
 warnings.filterwarnings('ignore', message='Using UFloat objects with std_dev==0')
 
-API_KEY = os.environ.get('MP_API_KEY')
 BASE_URL = "https://api.materialsproject.org"
-HEADERS = {"X-API-KEY": API_KEY} if API_KEY else {}
+
+
+def _get_api_key():
+    key = os.environ.get('MP_API_KEY')
+    if not key:
+        print("  WARNING: MP_API_KEY not set -- cannot query MP API")
+    return key
 
 LANTHANIDES = ['La', 'Ce', 'Pr', 'Nd', 'Pm', 'Sm', 'Eu', 'Gd',
                'Tb', 'Dy', 'Ho', 'Er', 'Tm', 'Yb', 'Lu']
@@ -105,32 +136,46 @@ def identify_missing(cache):
 
 
 def find_template(cache, tm, proto_key, re_target):
-    """Find an existing cache entry for the same prototype but different RE.
-    Prefer the RE closest in atomic number to re_target.
-    Returns (re_template, material_id) or None.
+    """Find an existing cache entry for the same prototype.
+
+    Search order:
+      1. Same TM system, different RE (only RE substitution needed)
+      2. Other TM systems (RE + TM substitution needed)
+
+    Within each TM system, prefer the RE closest in atomic number.
+    Returns (re_template, tm_template, material_id) or None.
     """
-    proto_data = cache.get(tm, {}).get(proto_key, {})
-    if not proto_data:
-        return None
     target_z = LANTHANIDE_Z[re_target]
-    candidates = [(re, d['material_id']) for re, d in proto_data.items()
-                  if re != re_target]
-    if not candidates:
-        return None
-    candidates.sort(key=lambda x: abs(LANTHANIDE_Z.get(x[0], 999) - target_z))
-    return candidates[0]
+
+    # Priority order: same TM first, then others
+    tm_order = [tm] + [t for t in TM_ELEMENTS if t != tm]
+
+    for tm_search in tm_order:
+        proto_data = cache.get(tm_search, {}).get(proto_key, {})
+        if not proto_data:
+            continue
+        candidates = [(re, d['material_id']) for re, d in proto_data.items()
+                      if not (re == re_target and tm_search == tm)]
+        if not candidates:
+            continue
+        candidates.sort(key=lambda x: abs(LANTHANIDE_Z.get(x[0], 999) - target_z))
+        return (candidates[0][0], tm_search, candidates[0][1])
+
+    return None
 
 
 def fetch_mp_structure(material_id):
     """Fetch crystal structure from MP summary endpoint."""
-    if not API_KEY:
+    api_key = _get_api_key()
+    if not api_key:
         raise RuntimeError("MP_API_KEY environment variable not set")
+    headers = {"X-API-KEY": api_key}
     url = f"{BASE_URL}/materials/summary/"
     params = {
         "material_ids": material_id,
         "_fields": "material_id,structure",
     }
-    resp = _get_with_retry(url, HEADERS, params)
+    resp = _get_with_retry(url, headers, params)
     if resp is None:
         return None
     data = resp.json().get('data', [])
@@ -142,20 +187,69 @@ def fetch_mp_structure(material_id):
     return Structure.from_dict(struct_dict)
 
 
-def make_substituted_structure(template_struct, re_template, re_target):
-    """Replace all re_template atoms with re_target."""
+def make_substituted_structure(template_struct, re_template, re_target,
+                               tm_template=None, tm_target=None):
+    """Replace re_template with re_target (and optionally tm_template with tm_target)."""
     new_struct = template_struct.copy()
     for i, site in enumerate(new_struct):
-        if str(site.specie) == re_template:
+        sp = str(site.specie)
+        if sp == re_template:
             new_struct.replace(i, re_target)
+        elif tm_template and tm_target and sp == tm_template:
+            new_struct.replace(i, tm_target)
     return new_struct
 
 
+def symmetrize_structure(structure):
+    """Symmetrize structure using PyXtal with progressive tolerance."""
+    if not PYXTAL_AVAILABLE:
+        return structure
+    tolerances = [5e-2, 1e-2, 1e-3, 1e-4, 1e-5]
+    adaptor = AseAtomsAdaptor()
+    for tol in tolerances:
+        try:
+            xtal = pyxtal()
+            xtal.from_seed(structure, tol=tol)
+            if not xtal.valid:
+                continue
+            if len(xtal.check_short_distances(r=0.5)) > 0:
+                continue
+            atoms = xtal.to_ase()
+            return adaptor.get_structure(atoms)
+        except Exception:
+            continue
+    print(f"    Warning: Could not symmetrize, using original structure")
+    return structure
+
+
 def create_vasp_inputs(structure, job_dir):
-    """Create VASP inputs using pure MPRelaxSet defaults (MP-consistent)."""
+    """Create VASP inputs using MPRelaxSet defaults with symmetrization
+    and NBANDS safety for high-ZVAL lanthanide systems."""
     job_dir = Path(job_dir)
     job_dir.mkdir(parents=True, exist_ok=True)
-    vis = MPRelaxSet(structure)
+
+    structure = symmetrize_structure(structure)
+
+    ncore = 4
+    potcar = MPRelaxSet(structure).potcar
+    zval = {p.element: p.ZVAL for p in potcar}
+    nelect = sum(zval[str(el)] * amt for el, amt in structure.composition.items())
+    nions = len(structure)
+    nbands = max(int(nelect / 2) + max(nions // 2, 10), int(0.6 * nelect))
+    nbands = ((nbands + ncore - 1) // ncore) * ncore
+
+    vis = MPRelaxSet(structure,
+                     user_incar_settings={
+                         'NBANDS': nbands,
+                         'NCORE': ncore,
+                         'IBRION': 1,
+                         'POTIM': 0.1,
+                         'ISMEAR': 0,
+                         'SIGMA': 0.05,
+                         'NSW': 150,
+                         'NELM': 120,
+                         'SYMPREC': 1e-4,
+                     })
     vis.write_input(job_dir)
     return job_dir
 
@@ -302,48 +396,128 @@ def check_electronic_convergence_oszicar(relax_dir):
         return False, None
 
 
-def query_mp_entries_for_chemsys(chemsys):
-    """Query MP thermo endpoint for GGA_GGA+U entries in a chemsys.
-    Returns list of PDEntry objects for phase diagram construction.
+def _alpha_to_mpid(alpha_id):
+    """Convert AlphaID (e.g. 'mp-aaaaaaft') to numeric MPID (e.g. 'mp-149')."""
+    prefix, code = alpha_id.rsplit('-', 1)
+    num = 0
+    for ch in code:
+        num = num * 26 + (ord(ch) - ord('a'))
+    return f"{prefix}-{num}"
+
+
+def _fetch_gga_elemental_from_tasks(element):
+    """Fallback: fetch the lowest GGA energy for an element from MP tasks API.
+
+    Some elements (e.g. Yb) have no GGA thermo entry but DO have GGA
+    tasks (Structure Optimization / Static).  Returns (energy_per_atom,
+    task_id) or (None, None).
     """
-    if not API_KEY:
-        raise RuntimeError("MP_API_KEY environment variable not set")
+    _require_requests()
+    api_key = _get_api_key()
+    if not api_key:
+        return None, None
+    headers = {"X-API-KEY": api_key}
+    url = f"{BASE_URL}/materials/tasks/"
+    params = {
+        "formula": element,
+        "_fields": "task_id,task_type,run_type,output",
+        "_limit": 100,
+    }
+    resp = _get_with_retry(url, headers, params)
+    if resp is None:
+        return None, None
 
-    thermo_url = f"{BASE_URL}/materials/thermo/"
-    all_entries = []
-    offset = 0
-    while True:
-        params = {
-            "chemsys": chemsys,
-            "_fields": "material_id,formula_pretty,composition,energy_above_hull,"
-                       "energy_per_atom,thermo_type",
-            "_limit": 100, "_skip": offset,
-        }
-        resp = _get_with_retry(thermo_url, HEADERS, params)
-        if resp is None:
-            break
-        batch = resp.json().get('data', [])
-        if not batch:
-            break
-        all_entries.extend(batch)
-        if len(batch) < 100:
-            break
-        offset += 100
-
-    pd_entries = []
-    for d in all_entries:
-        if d.get('thermo_type') != 'GGA_GGA+U':
+    best_epa, best_tid = None, None
+    for d in resp.json().get("data", []):
+        if d.get("run_type") != "GGA":
             continue
-        comp_dict = d.get('composition', {})
-        if not comp_dict:
+        ttype = d.get("task_type", "")
+        if ttype not in ("Structure Optimization", "Static"):
             continue
-        comp = Composition(comp_dict)
-        epa = d.get('energy_per_atom')
+        output = d.get("output") or {}
+        epa = output.get("energy_per_atom")
         if epa is None:
             continue
-        total_e = epa * comp.num_atoms
-        pd_entries.append(PDEntry(comp, total_e,
-                                  name=d.get('material_id', '')))
+        if best_epa is None or epa < best_epa:
+            best_epa = epa
+            best_tid = d.get("task_id", "task-unknown")
+    return best_epa, best_tid
+
+
+def query_mp_entries_for_chemsys(chemsys):
+    """Query MP for GGA/GGA+U entries using legacy MPRester.
+
+    Uses pymatgen.ext.matproj.MPRester.get_entries_in_chemsys() which
+    returns ComputedEntry objects for ALL phases (including elemental
+    endpoints).  Filters for '-GGA' or '-GGA+U' entry_id suffix and
+    uses uncorrected_energy (raw DFT, no anion/composition corrections)
+    to match our VASP energies.
+
+    If any elemental endpoint is missing from the thermo entries (e.g. Yb),
+    falls back to querying the tasks API for the lowest GGA task energy.
+    """
+    api_key = _get_api_key()
+    if not api_key:
+        return []
+    if MPRester is None:
+        print("  WARNING: pymatgen.ext.matproj.MPRester not available")
+        return []
+
+    elements = chemsys.split('-')
+    try:
+        mpr = MPRester(api_key)
+        computed_entries = mpr.get_entries_in_chemsys(elements)
+    except Exception as e:
+        print(f"  WARNING: MPRester query failed for {chemsys}: {e}")
+        return []
+
+    pd_entries = []
+    seen = set()
+    for comp_entry in computed_entries:
+        raw_eid = comp_entry.entry_id
+        if isinstance(raw_eid, dict):
+            mp_id = _alpha_to_mpid(raw_eid.get('identifier', 'mp-a'))
+            suffix = raw_eid.get('suffix', '')
+            sep = raw_eid.get('separator', '-')
+            entry_id = f"{mp_id}{sep}{suffix}"
+        else:
+            entry_id = str(raw_eid)
+            suffix = entry_id.rsplit('-', 1)[-1] if '-' in entry_id else ''
+
+        if entry_id in seen:
+            continue
+        if suffix not in ('GGA', 'GGA+U'):
+            continue
+        seen.add(entry_id)
+
+        try:
+            energy = comp_entry.uncorrected_energy
+        except AttributeError:
+            energy = comp_entry.energy
+
+        pd_entries.append(PDEntry(comp_entry.composition, energy,
+                                  name=entry_id))
+
+    # Check for missing elemental endpoints and try tasks API fallback
+    present_elems = set()
+    for e in pd_entries:
+        if len(e.composition.elements) == 1:
+            present_elems.add(str(e.composition.elements[0]))
+
+    for el in elements:
+        if el in present_elems:
+            continue
+        print(f"  WARNING: no GGA thermo entry for {el}, "
+              f"trying tasks API fallback...")
+        epa, tid = _fetch_gga_elemental_from_tasks(el)
+        if epa is not None:
+            comp = Composition({el: 1})
+            pd_entries.append(PDEntry(comp, epa, name=f"{tid}-GGA-task"))
+            print(f"    Recovered {el} elemental from task {tid}: "
+                  f"{epa:.6f} eV/atom")
+        else:
+            print(f"    FAILED: no GGA tasks found for {el} either")
+
     return pd_entries
 
 
@@ -351,6 +525,7 @@ def compute_dft_ehull(chemsys, vasp_energy_per_atom, composition_dict):
     """Compute E_hull for a relaxed structure against MP reference phases."""
     mp_entries = query_mp_entries_for_chemsys(chemsys)
     if not mp_entries:
+        print(f"  WARNING: no MP entries returned for {chemsys}")
         return None
 
     comp = Composition(composition_dict)
@@ -364,14 +539,17 @@ def compute_dft_ehull(chemsys, vasp_energy_per_atom, composition_dict):
         if len(e.composition.elements) == 1:
             elem_symbols.add(str(e.composition.elements[0]))
     needed = set(str(el) for el in comp.elements)
-    if not needed.issubset(elem_symbols):
+    missing = needed - elem_symbols
+    if missing:
+        print(f"  WARNING: cannot build PhaseDiagram for {chemsys} -- "
+              f"missing elemental reference(s): {sorted(missing)}")
         return None
 
     try:
         pd = PhaseDiagram(all_entries)
         return pd.get_e_above_hull(our_entry)
     except Exception as e:
-        print(f"  WARNING: PhaseDiagram failed: {e}")
+        print(f"  WARNING: PhaseDiagram failed for {chemsys}: {e}")
         return None
 
 
@@ -465,10 +643,13 @@ class MPPhaseRelaxManager:
             if tmpl is None:
                 skipped_no_template += 1
                 print(f"  SKIP {struct_id}: no template available for "
-                      f"{pk} in {tm} system")
+                      f"{pk} in any TM system")
                 continue
 
-            re_template, template_mpid = tmpl
+            re_template, tm_template, template_mpid = tmpl
+            if tm_template != tm:
+                print(f"  CROSS-TM {struct_id}: using {tm_template} template "
+                      f"({re_template}{tm_template} -> {re}{tm})")
             chemsys = '-'.join(sorted([re, tm]))
             relax_dir = str(output_dir / struct_id / 'Relax')
 
@@ -477,6 +658,7 @@ class MPPhaseRelaxManager:
                 'proto_key': pk,
                 're': re,
                 're_template': re_template,
+                'tm_template': tm_template,
                 'template_mpid': template_mpid,
                 'chemsys': chemsys,
                 'spg': pinfo['spg'],
@@ -514,15 +696,23 @@ class MPPhaseRelaxManager:
         template_mpid = sdata['template_mpid']
         re_template = sdata['re_template']
         re_target = sdata['re']
+        tm_template = sdata.get('tm_template', sdata['tm'])
+        tm_target = sdata['tm']
 
-        print(f"    Fetching template {template_mpid} "
-              f"({re_template} -> {re_target})...")
+        if tm_template != tm_target:
+            print(f"    Fetching template {template_mpid} "
+                  f"({re_template}{tm_template} -> {re_target}{tm_target})...")
+        else:
+            print(f"    Fetching template {template_mpid} "
+                  f"({re_template} -> {re_target})...")
         template_struct = fetch_mp_structure(template_mpid)
         if template_struct is None:
             return None
 
         structure = make_substituted_structure(
-            template_struct, re_template, re_target)
+            template_struct, re_template, re_target,
+            tm_template if tm_template != tm_target else None,
+            tm_target if tm_template != tm_target else None)
         self._structure_cache[struct_id] = structure
         return structure
 
@@ -654,31 +844,18 @@ class MPPhaseRelaxManager:
                     converged, energy = \
                         check_electronic_convergence_oszicar(relax_dir)
                     if converged and energy is not None:
-                        vr_path = relax_dir / 'vasprun.xml'
-                        if vr_path.exists():
-                            epa, e_hull, err = \
-                                self._parse_vasp_results(struct_id)
-                            if err:
-                                self.db.update_state(
-                                    struct_id, 'TMOUT', error=err)
-                            else:
-                                self.db.update_state(
-                                    struct_id, 'TMOUT',
-                                    vasp_energy_per_atom=epa,
-                                    dft_e_hull=e_hull)
-                        else:
-                            natoms = len(Structure.from_file(
-                                str(contcar_path)))
-                            epa = energy / natoms
-                            comp = Structure.from_file(
-                                str(contcar_path)).composition.as_dict()
-                            e_hull = compute_dft_ehull(
-                                sdata['chemsys'], epa, comp)
-                            self.db.update_state(
-                                struct_id, 'TMOUT',
-                                vasp_energy_per_atom=epa,
-                                dft_e_hull=e_hull,
-                                error='Timed out but electronic converged')
+                        natoms = len(Structure.from_file(
+                            str(contcar_path)))
+                        epa = energy / natoms
+                        comp = Structure.from_file(
+                            str(contcar_path)).composition.as_dict()
+                        e_hull = compute_dft_ehull(
+                            sdata['chemsys'], epa, comp)
+                        self.db.update_state(
+                            struct_id, 'TMOUT',
+                            vasp_energy_per_atom=epa,
+                            dft_e_hull=e_hull,
+                            error='Timed out but electronic converged')
                         print(f"  {struct_id}: TMOUT (usable)")
                     else:
                         self.db.update_state(struct_id, 'FAILED',
@@ -744,6 +921,71 @@ class MPPhaseRelaxManager:
             time.sleep(self.check_interval)
 
 
+def _compute_ehull_postprocess(db_path):
+    """Post-process: compute dft_e_hull for completed entries missing it.
+    Run from a login node with internet access.
+    """
+    api_key = _get_api_key()
+    if not api_key:
+        print("ERROR: MP_API_KEY must be set for E_hull computation")
+        sys.exit(1)
+
+    db = WorkflowDatabase(db_path)
+    targets = []
+    for sid, rec in db.data['structures'].items():
+        if rec['state'] in ('DONE', 'TMOUT') and \
+                rec.get('vasp_energy_per_atom') is not None and \
+                rec.get('dft_e_hull') is None:
+            targets.append(sid)
+
+    if not targets:
+        print("No entries need E_hull computation.")
+        return
+
+    print(f"Computing dft_e_hull for {len(targets)} entries...")
+    success = 0
+    for i, sid in enumerate(targets, 1):
+        rec = db.get_structure(sid)
+        chemsys = rec['chemsys']
+        epa = rec['vasp_energy_per_atom']
+
+        relax_dir = Path(rec['relax_dir'])
+        contcar = relax_dir / 'CONTCAR'
+        vasprun_path = relax_dir / 'vasprun.xml'
+
+        comp_dict = None
+        if vasprun_path.exists():
+            try:
+                vr = Vasprun(str(vasprun_path), parse_dos=False,
+                             parse_eigen=False)
+                comp_dict = dict(vr.final_structure.composition.as_dict())
+            except Exception:
+                pass
+        if comp_dict is None and contcar.exists():
+            try:
+                comp_dict = dict(
+                    Structure.from_file(str(contcar)).composition.as_dict())
+            except Exception:
+                pass
+        if comp_dict is None:
+            re, tm = rec['re'], rec['tm']
+            pinfo = PROTOTYPES[rec['proto_key']]
+            comp_dict = {re: pinfo['re_count'], tm: pinfo['tm_count']}
+
+        print(f"  [{i}/{len(targets)}] {sid} ({chemsys}, "
+              f"epa={epa:.6f})...", end=" ")
+        e_hull = compute_dft_ehull(chemsys, epa, comp_dict)
+        if e_hull is not None:
+            db.update_state(sid, rec['state'], dft_e_hull=e_hull)
+            print(f"E_hull = {e_hull:.6f} eV/atom")
+            success += 1
+        else:
+            print("FAILED")
+        time.sleep(0.3)
+
+    print(f"\nDone: {success}/{len(targets)} E_hull values computed.")
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="MP Reference Phase VASP Relaxation Workflow")
@@ -765,8 +1007,22 @@ def main():
     parser.add_argument(
         '--init-only', action='store_true',
         help="Only initialize database, don't start monitoring")
+    parser.add_argument(
+        '--compute-ehull', action='store_true',
+        help="Post-processing: compute dft_e_hull for all DONE/TMOUT entries "
+             "that have vasp_energy_per_atom but no dft_e_hull. "
+             "Run from a login node with internet access.")
 
     args = parser.parse_args()
+
+    output_dir = Path(os.path.expandvars(args.output_dir)).expanduser()
+    db_path = Path(args.db).expanduser()
+    if not db_path.is_absolute():
+        db_path = output_dir / args.db
+
+    if args.compute_ehull:
+        _compute_ehull_postprocess(db_path)
+        return
 
     cache_path = Path(args.cache).expanduser()
     if not cache_path.exists():
@@ -774,11 +1030,6 @@ def main():
         sys.exit(1)
     with open(cache_path) as f:
         cache = json.load(f)
-
-    output_dir = Path(os.path.expandvars(args.output_dir)).expanduser()
-    db_path = Path(args.db).expanduser()
-    if not db_path.is_absolute():
-        db_path = output_dir / args.db
 
     manager = MPPhaseRelaxManager(
         db_path=db_path,
