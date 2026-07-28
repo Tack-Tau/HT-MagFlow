@@ -33,15 +33,15 @@ LANTHANIDES = ['La', 'Ce', 'Pr', 'Nd', 'Pm', 'Sm', 'Eu', 'Gd',
                'Tb', 'Dy', 'Ho', 'Er', 'Tm', 'Yb', 'Lu']
 
 PROTOTYPES = {
-    'RETM2_227':  {'ratio': 2.0, 'spg': 227, 'pearson': 'cF24', 'formula': {'Fe': r'RFe$_2$',        'Co': r'RCo$_2$'}},
-    'RETM5_191':  {'ratio': 5.0, 'spg': 191, 'pearson': 'hP6',  'formula': {'Fe': r'RFe$_5$',        'Co': r'RCo$_5$'}},
-    'R2TM7_166':  {'ratio': 3.5, 'spg': 166, 'pearson': 'hR18', 'formula': {'Fe': r'R$_2$Fe$_7$',    'Co': r'R$_2$Co$_7$'}},
-    'R2TM7_194':  {'ratio': 3.5, 'spg': 194, 'pearson': 'hP36', 'formula': {'Fe': r'R$_2$Fe$_7$',    'Co': r'R$_2$Co$_7$'}},
-    'R2TM17_166': {'ratio': 8.5, 'spg': 166, 'pearson': 'hR19', 'formula': {'Fe': r'R$_2$Fe$_{17}$', 'Co': r'R$_2$Co$_{17}$'}},
-    'R2TM17_194': {'ratio': 8.5, 'spg': 194, 'pearson': 'hP38', 'formula': {'Fe': r'R$_2$Fe$_{17}$', 'Co': r'R$_2$Co$_{17}$'}},
+    'RETM2_227':  {'ratio': 2.0, 'spg': 227, 'pearson': 'cF24', 'formula': {'Fe': r'RFe$_2$',        'Co': r'RCo$_2$',        'Ni': r'RNi$_2$'}},
+    'RETM5_191':  {'ratio': 5.0, 'spg': 191, 'pearson': 'hP6',  'formula': {'Fe': r'RFe$_5$',        'Co': r'RCo$_5$',        'Ni': r'RNi$_5$'}},
+    'R2TM7_166':  {'ratio': 3.5, 'spg': 166, 'pearson': 'hR18', 'formula': {'Fe': r'R$_2$Fe$_7$',    'Co': r'R$_2$Co$_7$',    'Ni': r'R$_2$Ni$_7$'}},
+    'R2TM7_194':  {'ratio': 3.5, 'spg': 194, 'pearson': 'hP36', 'formula': {'Fe': r'R$_2$Fe$_7$',    'Co': r'R$_2$Co$_7$',    'Ni': r'R$_2$Ni$_7$'}},
+    'R2TM17_166': {'ratio': 8.5, 'spg': 166, 'pearson': 'hR19', 'formula': {'Fe': r'R$_2$Fe$_{17}$', 'Co': r'R$_2$Co$_{17}$', 'Ni': r'R$_2$Ni$_{17}$'}},
+    'R2TM17_194': {'ratio': 8.5, 'spg': 194, 'pearson': 'hP38', 'formula': {'Fe': r'R$_2$Fe$_{17}$', 'Co': r'R$_2$Co$_{17}$', 'Ni': r'R$_2$Ni$_{17}$'}},
 }
 
-TM_ELEMENTS = ['Fe', 'Co']
+TM_ELEMENTS = ['Fe', 'Co', 'Ni']
 CACHE_FILE = 'mp_RE-TM_phase_cache.json'
 
 
@@ -190,19 +190,57 @@ def save_cache(data):
         json.dump(data, f, indent=2)
 
 
+def merge_flow_into_cache(cached, flow_path):
+    """Merge VASP-relaxed results from flow JSON into the cache.
+
+    For each DONE/TMOUT entry with dft_e_hull, add it to the cache
+    if the corresponding (tm, proto_key, re) slot is empty.
+    Returns the number of entries added.
+    """
+    with open(flow_path) as f:
+        flow = json.load(f)
+
+    added = 0
+    for sid, rec in flow.get('structures', {}).items():
+        if rec['state'] not in ('DONE', 'TMOUT'):
+            continue
+        e_hull = rec.get('dft_e_hull')
+        if e_hull is None:
+            continue
+
+        tm = rec['tm']
+        pk = rec['proto_key']
+        re_elem = rec['re']
+
+        if cached.get(tm, {}).get(pk, {}).get(re_elem) is not None:
+            continue
+
+        cached.setdefault(tm, {}).setdefault(pk, {})[re_elem] = {
+            'material_id': sid,
+            'formula': sid.split('_')[0],
+            'e_hull': e_hull,
+            'spg': rec['spg'],
+        }
+        added += 1
+    return added
+
+
+FLOW_FILE = 'mp_RE-TM_phase_flow.json'
+
+
 def main():
     output_dir = 'paper/figs'
     os.makedirs(output_dir, exist_ok=True)
 
     cached = load_cache()
-    if cached:
-        print(f"Loaded cached data from {CACHE_FILE}")
-        all_data = cached
-    else:
-        print("Querying Materials Project REST API...")
-        all_data = {}
-        for tm in TM_ELEMENTS:
-            all_data[tm] = {pk: {} for pk in PROTOTYPES}
+    if cached is None:
+        cached = {}
+
+    missing_tms = [tm for tm in TM_ELEMENTS if tm not in cached]
+    if missing_tms:
+        print(f"Querying Materials Project REST API for: {missing_tms}")
+        for tm in missing_tms:
+            cached[tm] = {pk: {} for pk in PROTOTYPES}
             for re in LANTHANIDES:
                 chemsys = '-'.join(sorted([re, tm]))
                 print(f"  Querying {chemsys}...")
@@ -210,18 +248,27 @@ def main():
                 for proto_key, proto_info in PROTOTYPES.items():
                     result = match_prototype(materials, re, tm, proto_info)
                     if result is not None:
-                        all_data[tm][proto_key][re] = result
+                        cached[tm][proto_key][re] = result
                         print(f"    {proto_key}: E_hull = {result['e_hull']:.4f} "
                               f"(spg {result['spg']}, {result['material_id']})")
+        save_cache(cached)
+        print(f"\nUpdated cache to {CACHE_FILE}")
+    else:
+        print(f"Loaded cached data from {CACHE_FILE}")
 
-        save_cache(all_data)
-        print(f"\nCached results to {CACHE_FILE}")
+    if os.path.exists(FLOW_FILE):
+        n = merge_flow_into_cache(cached, FLOW_FILE)
+        print(f"Merged {n} VASP-relaxed entries from {FLOW_FILE}")
+
+    all_data = cached
 
     # --- Plotting ---
+    from matplotlib.ticker import MaxNLocator
+
     FS_TITLE = 18
     FS_LABEL = 15
     FS_TICK = 13
-    FS_LEGEND = 12
+    FS_LEGEND = 11
     LW = 2.0
     MS = 11
 
@@ -229,10 +276,10 @@ def main():
     COLORS = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b']
 
     proto_keys = list(PROTOTYPES.keys())
-    fig, axes = plt.subplots(2, 1, figsize=(10, 12))
+    fig, axes = plt.subplots(3, 1, figsize=(10, 13))
 
-    for col, tm in enumerate(TM_ELEMENTS):
-        ax = axes[col]
+    for row, tm in enumerate(TM_ELEMENTS):
+        ax = axes[row]
 
         all_re_with_data = set()
         for pk in proto_keys:
@@ -255,12 +302,24 @@ def main():
                     linewidth=LW, markersize=MS, label=label,
                     zorder=5, alpha=0.85)
 
+            # Overlay open markers for VASP-relaxed (non-MP) entries
+            vasp_xs = [x_pos[re] for re in re_elems
+                       if not data[re].get('material_id', '').startswith('mp-')]
+            vasp_ys = [data[re]['e_hull'] for re in re_elems
+                       if not data[re].get('material_id', '').startswith('mp-')]
+            if vasp_xs:
+                ax.scatter(vasp_xs, vasp_ys, s=MS**2, marker=MARKERS[pidx],
+                           facecolors='none', edgecolors=COLORS[pidx],
+                           linewidths=2.0, zorder=6)
+
         ax.set_xticks(range(len(x_labels)))
         ax.set_xticklabels(x_labels, rotation=45, ha='right', fontsize=FS_TICK)
-        ax.set_xlabel('Lanthanide element', fontsize=FS_LABEL)
+        if row == 2:
+            ax.set_xlabel('Lanthanide element', fontsize=FS_LABEL)
         ax.set_ylabel(r'$E_{\mathrm{hull}}$ (eV/atom)', fontsize=FS_LABEL)
         ax.set_title(f'R\u2013{tm}', fontsize=FS_TITLE, fontweight='bold')
         ax.tick_params(axis='y', labelsize=FS_TICK)
+        ax.yaxis.set_major_locator(MaxNLocator(nbins=5))
         ax.axhline(y=0, color='gray', linestyle='--', linewidth=1, alpha=0.5)
         ax.grid(True, alpha=0.3, linestyle=':')
         ax.legend(fontsize=FS_LEGEND, loc='best', framealpha=0.9)
