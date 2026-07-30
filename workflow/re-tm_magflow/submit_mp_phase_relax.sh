@@ -20,6 +20,7 @@ MAX_CONCURRENT=${MAX_CONCURRENT:-10}
 CHECK_INTERVAL=${CHECK_INTERVAL:-60}
 CONDA_ENV=${CONDA_ENV:-"vaspflow"}
 DB_NAME=${DB_NAME:-"mp_RE-TM_phase_flow.json"}
+RETRY_FAILED=${RETRY_FAILED:-false}
 
 echo "========================================================================"
 echo "MP Phase Relaxation Manager (SLURM Job)"
@@ -59,8 +60,8 @@ fi
 CACHE_FILE=$(eval echo "$CACHE_FILE")
 OUTPUT_DIR=$(eval echo "$OUTPUT_DIR")
 
-# Check cache file
-if [ ! -f "$CACHE_FILE" ]; then
+# Check cache file (not needed for --retry-failed)
+if [ "$RETRY_FAILED" != "true" ] && [ ! -f "$CACHE_FILE" ]; then
     echo "Error: Cache file not found: $CACHE_FILE"
     exit 1
 fi
@@ -70,24 +71,37 @@ mkdir -p "$OUTPUT_DIR"
 
 # Build command
 CMD="python3 mp_RE-TM_phase_relax.py"
-CMD="$CMD --cache $CACHE_FILE"
 CMD="$CMD --output-dir $OUTPUT_DIR"
 CMD="$CMD --max-concurrent $MAX_CONCURRENT"
 CMD="$CMD --check-interval $CHECK_INTERVAL"
 CMD="$CMD --db $DB_NAME"
 
+if [ "$RETRY_FAILED" = "true" ]; then
+    CMD="$CMD --retry-failed"
+else
+    CMD="$CMD --cache $CACHE_FILE"
+fi
+
 # Print configuration
 echo "Configuration:"
-echo "  Cache file: $CACHE_FILE"
 echo "  Output dir: $OUTPUT_DIR"
 echo "  Max concurrent: $MAX_CONCURRENT"
 echo "  Check interval: ${CHECK_INTERVAL}s"
 echo "  Database: $OUTPUT_DIR/$DB_NAME"
+if [ "$RETRY_FAILED" = "true" ]; then
+    echo "  Mode: RETRY FAILED jobs"
+else
+    echo "  Cache file: $CACHE_FILE"
+fi
 echo ""
 
 # Check if resuming
 if [ -f "$OUTPUT_DIR/$DB_NAME" ]; then
-    echo "Database exists - resuming from previous state"
+    if [ "$RETRY_FAILED" = "true" ]; then
+        echo "Database exists - will retry FAILED entries"
+    else
+        echo "Database exists - resuming from previous state"
+    fi
     echo ""
 fi
 

@@ -11,6 +11,7 @@ MAX_CONCURRENT=10
 CHECK_INTERVAL=60
 DB_NAME="mp_RE-TM_phase_flow.json"
 CONDA_ENV="vaspflow"
+RETRY_FAILED=false
 
 # Colors
 GREEN='\033[0;32m'
@@ -46,6 +47,10 @@ while [[ $# -gt 0 ]]; do
             CONDA_ENV="$2"
             shift 2
             ;;
+        --retry-failed)
+            RETRY_FAILED=true
+            shift
+            ;;
         --help)
             echo "Usage: bash run_mp_phase_relax.sh [options]"
             echo ""
@@ -58,9 +63,11 @@ while [[ $# -gt 0 ]]; do
             echo "  --max-concurrent N         Max concurrent VASP jobs (default: 10)"
             echo "  --check-interval SECONDS   Status check interval (default: 60)"
             echo "  --conda-env NAME           Conda environment name (default: vaspflow)"
+            echo "  --retry-failed             Retry FAILED jobs using CONTCAR as starting geometry"
             echo ""
             echo "Example:"
             echo "  bash run_mp_phase_relax.sh --max-concurrent 20"
+            echo "  bash run_mp_phase_relax.sh --retry-failed --max-concurrent 20"
             echo ""
             echo "Monitoring:"
             echo "  View log:        tail -f mp_phase_relax_<JOBID>.out"
@@ -80,8 +87,8 @@ done
 CACHE_FILE=$(eval echo "$CACHE_FILE")
 OUTPUT_DIR=$(eval echo "$OUTPUT_DIR")
 
-# Check if cache file exists
-if [ ! -f "$CACHE_FILE" ]; then
+# Check if cache file exists (not needed for --retry-failed)
+if [ "$RETRY_FAILED" != "true" ] && [ ! -f "$CACHE_FILE" ]; then
     echo -e "${RED}Error: Cache file not found: $CACHE_FILE${NC}"
     exit 1
 fi
@@ -99,12 +106,16 @@ fi
 
 # Print configuration
 echo -e "${GREEN}Configuration:${NC}"
-echo "  Cache file: $CACHE_FILE"
 echo "  Output dir: $OUTPUT_DIR"
 echo "  Max concurrent: $MAX_CONCURRENT"
 echo "  Check interval: ${CHECK_INTERVAL}s"
 echo "  Database: $DB_PATH"
 echo "  Conda env: $CONDA_ENV"
+if [ "$RETRY_FAILED" = "true" ]; then
+    echo "  Mode: RETRY FAILED jobs"
+else
+    echo "  Cache file: $CACHE_FILE"
+fi
 echo ""
 
 # Export variables for SLURM script
@@ -114,6 +125,7 @@ export MAX_CONCURRENT
 export CHECK_INTERVAL
 export DB_NAME
 export CONDA_ENV
+export RETRY_FAILED
 
 # Submit the workflow manager job
 echo "Submitting MP phase relaxation manager as SLURM job..."

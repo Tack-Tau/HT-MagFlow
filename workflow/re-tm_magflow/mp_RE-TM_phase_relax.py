@@ -921,6 +921,56 @@ class MPPhaseRelaxManager:
             time.sleep(self.check_interval)
 
 
+def _retry_failed(db_path, output_dir, max_concurrent, check_interval):
+    """Reset FAILED entries: clean relax dir, use CONTCAR as new POSCAR,
+    regenerate VASP inputs with current settings, then monitor."""
+    db = WorkflowDatabase(db_path)
+    failed = db.get_by_state('FAILED')
+    if not failed:
+        print("No FAILED entries to retry.")
+        return
+
+    print(f"Found {len(failed)} FAILED entries to retry:")
+    retried = 0
+    for sid in failed:
+        rec = db.get_structure(sid)
+        relax_dir = Path(rec['relax_dir'])
+        contcar = relax_dir / 'CONTCAR'
+
+        if not contcar.exists() or contcar.stat().st_size == 0:
+            print(f"  SKIP {sid}: no usable CONTCAR")
+            continue
+
+        structure = Structure.from_file(str(contcar))
+
+        # Clean relax dir but keep CONTCAR
+        for f in relax_dir.iterdir():
+            if f.name != 'CONTCAR':
+                if f.is_file():
+                    f.unlink()
+
+        create_vasp_inputs(structure, relax_dir)
+        print(f"  {sid}: cleaned & regenerated inputs from CONTCAR "
+              f"({len(structure)} atoms)")
+
+        db.update_state(sid, 'PENDING', slurm_job_id=None,
+                        vasp_energy_per_atom=None, dft_e_hull=None,
+                        error=None)
+        retried += 1
+
+    db.save()
+    print(f"\nReset {retried}/{len(failed)} entries to PENDING")
+
+    if retried == 0:
+        return
+
+    manager = MPPhaseRelaxManager(
+        db_path=db_path,
+        max_concurrent=max_concurrent,
+        check_interval=check_interval)
+    manager.monitor_and_submit()
+
+
 def _compute_ehull_postprocess(db_path):
     """Post-process: compute dft_e_hull for completed entries missing it.
     Run from a login node with internet access.
@@ -1012,6 +1062,10 @@ def main():
         help="Post-processing: compute dft_e_hull for all DONE/TMOUT entries "
              "that have vasp_energy_per_atom but no dft_e_hull. "
              "Run from a login node with internet access.")
+    parser.add_argument(
+        '--retry-failed', action='store_true',
+        help="Retry FAILED jobs: clean relax dir, use CONTCAR as starting "
+             "geometry, regenerate VASP inputs, and resubmit.")
 
     args = parser.parse_args()
 
@@ -1022,6 +1076,11 @@ def main():
 
     if args.compute_ehull:
         _compute_ehull_postprocess(db_path)
+        return
+
+    if args.retry_failed:
+        _retry_failed(db_path, output_dir,
+                      args.max_concurrent, args.check_interval)
         return
 
     cache_path = Path(args.cache).expanduser()
