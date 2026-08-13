@@ -308,13 +308,17 @@ class VASPRelaxManager:
             'SYMPREC': 1e-5,
         }
         
+        user_potcar_settings = {
+            "Gd": "Gd_3"
+        }
+
         # Override MAGMOM for rare earths (pymatgen defaults to 0.6 for most RE)
         magmom = build_magmom(structure)
         if magmom is not None:
             incar_settings['MAGMOM'] = magmom
         
         # Compute NBANDS from POTCAR ZVAL to avoid VASP crash for high-ZVAL systems
-        potcar = MPRelaxSet(structure).potcar
+        potcar = MPRelaxSet(structure, user_potcar_settings=user_potcar_settings).potcar
         zval = {p.element: p.ZVAL for p in potcar}
         nelect = sum(zval[str(el)] * amt for el, amt in structure.composition.items())
         nions = len(structure)
@@ -325,7 +329,8 @@ class VASPRelaxManager:
 
         vis = MPRelaxSet(structure,
             user_incar_settings=incar_settings,
-            user_kpoints_settings={'reciprocal_density': 64}
+            user_kpoints_settings={'reciprocal_density': 64},
+            user_potcar_settings=user_potcar_settings
         )
         vis.write_input(job_dir)
         return job_dir
