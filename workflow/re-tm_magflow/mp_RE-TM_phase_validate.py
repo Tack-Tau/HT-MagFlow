@@ -265,18 +265,18 @@ def main():
     # --- Plotting ---
     from matplotlib.ticker import MaxNLocator
 
-    FS_TITLE = 18
-    FS_LABEL = 15
-    FS_TICK = 13
-    FS_LEGEND = 11
-    LW = 2.0
-    MS = 11
+    FS_TITLE = 28
+    FS_LABEL = 26
+    FS_TICK = 26
+    FS_LEGEND = 18
+    LW = 2.5
+    MS = 16
 
     MARKERS = ['o', 's', 'D', '^', 'v', 'P']
     COLORS = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b']
 
     proto_keys = list(PROTOTYPES.keys())
-    fig, axes = plt.subplots(3, 1, figsize=(10, 13))
+    fig, axes = plt.subplots(3, 1, figsize=(10, 15))
 
     for row, tm in enumerate(TM_ELEMENTS):
         ax = axes[row]
@@ -322,7 +322,7 @@ def main():
         ax.yaxis.set_major_locator(MaxNLocator(nbins=5))
         ax.axhline(y=0, color='gray', linestyle='--', linewidth=1, alpha=0.5)
         ax.grid(True, alpha=0.3, linestyle=':')
-        ax.legend(fontsize=FS_LEGEND, loc='best', framealpha=0.9)
+        ax.legend(fontsize=FS_LEGEND, loc='best', framealpha=0.0, edgecolor='none')
 
     fig.tight_layout()
     outpath_pdf = os.path.join(output_dir, 'mp_RE-TM_phase_validation.pdf')
