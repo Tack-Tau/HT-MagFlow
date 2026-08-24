@@ -313,7 +313,7 @@ def main():
                            linewidths=2.0, zorder=6)
 
         ax.set_xticks(range(len(x_labels)))
-        ax.set_xticklabels(x_labels, rotation=45, ha='right', fontsize=FS_TICK)
+        ax.set_xticklabels(x_labels, rotation=45, ha='center', fontsize=FS_TICK)
         if row == 2:
             ax.set_xlabel('Lanthanide element', fontsize=FS_LABEL)
         ax.set_ylabel(r'$E_{\mathrm{hull}}$ (eV/atom)', fontsize=FS_LABEL)
